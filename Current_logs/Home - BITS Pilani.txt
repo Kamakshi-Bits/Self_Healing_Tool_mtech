@@ -1,0 +1,100 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - BITS Pilani</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	 
+
+	<main>
+	<br>
+	<br>
+	<br>
+	<br>
+
+       <div class="carousel-container">
+        <button class="prev" onclick="prevSlide()">❮</button>
+        <div class="carousel">
+            <div class="card">
+        <img src="C:\Users\Microsoft\Desktop\Bits\Website\img\campus.jpg" alt="campus">
+		</div>
+            <div class="card">
+		<img src="C:\Users\Microsoft\Desktop\Bits\Website\img\students.jpg" alt="students">
+		</div>
+            <div class="card">
+		<img src="C:\Users\Microsoft\Desktop\Bits\Website\img\conference.jpg" alt="conference">
+		</div>
+            <div class="card">
+		<img src="C:\Users\Microsoft\Desktop\Bits\Website\img\degree.jpg" alt="degree">
+		 </div>
+        </div>
+        <button class="next" onclick="nextSlide()">❯</button>
+    </div>
+	<script src="scrit.js"></script>
+	
+	    <!-- Header Section -->
+    <header class="hero">
+	    	<img src="C:\Users\Microsoft\Desktop\Bits\Website\img\logo.png" alt="BITS Pilani Logo" class="logo">
+        <h1>Welcome to BITS Pilani</h1>
+        <p>Empowering Innovation, Research, and Excellence</p>
+		<nav class="navbar">
+        <ul>
+            <li><a href="C:\Users\Microsoft\Desktop\Bits\Website\index.html" id="home">Home</a></li>
+            <li><a href="C:\Users\Microsoft\Desktop\Bits\Website\student-form.html" id="Form">Student Form</a></li>
+            <li><a href="C:\Users\Microsoft\Desktop\Bits\Website\student-details.html" id="details">Student Details</a></li>
+            <li><a href="C:\Users\Microsoft\Desktop\Bits\Website\updates.html" id="updates">Important Updates</a></li>
+            <li><a href="C:\Users\Microsoft\Desktop\Bits\Website\courses.html" id="courses">Courses</a></li>
+			<li><a href="C:\Users\Microsoft\Desktop\Bits\Website\contact.html" id="about">Contact Us</a></li>
+        </ul>
+    </nav>
+    </header>
+
+    <!-- About Section -->
+    <section class="about">
+        <h2>🏛 About BITS Pilani</h2>
+        <p id="about_bits">Birla Institute of Technology and Science (BITS Pilani) is a premier institute in India, excelling in education, research, and innovation since 1964.</p>
+    </section>
+
+    <!-- Why Choose BITS Section -->
+    <section class="why-bits">
+        <h2>🌟 Why Choose BITS Pilani?</h2>
+        <ul id="choose">
+            <li id="choose1" class="no">✅ Ranked among India’s top private universities</li>
+            <li id="choose2" class="no">✅ Flexible academic structure with research opportunities</li>
+            <li id="choose3" class="no">✅ Industry collaborations with Google, Microsoft, Tesla</li>
+            <li id="choose4" class="no">✅ 50,000+ Global Alumni Network</li>
+        </ul>
+    </section>
+
+    <!-- Campuses Section -->
+    <section class="campuses">
+        <h2>🌍 Our Campuses</h2>
+        <div class="campus-container">
+            <div id="campus1" class="campus-card">📍 Pilani (Main Campus)</div>
+            <div id="campus2" class="campus-card">📍 Goa Campus</div>
+            <div id="campus3" class="campus-card">📍 Hyderabad Campus</div>
+            <div id="campus4" class="campus-card">📍 Dubai Campus</div>
+        </div>
+    </section>
+
+    <!-- Academics Section -->
+    <section class="academics">
+        <h2>🎓 Academic Excellence</h2>
+        <p id="academics_id">BITS Pilani offers Undergraduate, Postgraduate, and Ph.D. programs in engineering, management, and research.</p>
+    </section>
+
+    <!-- Placements Section -->
+    <section class="placements">
+        <h2>🏆 Placements &amp; Careers</h2>
+        <p id="placement_id1">Our students are placed in top companies like Google, Microsoft, Amazon, Tesla, and many more.</p>
+    </section>
+	<br>
+	<br>
+	</main>
+    <footer>
+        <p>© 2025 BITS Pilani</p>
+    </footer>
+
+
+</body></html>

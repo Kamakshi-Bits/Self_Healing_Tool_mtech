@@ -1,0 +1,4 @@
+Requirement Document 
+Install Selenium library
+Operating System (this should be there in your system by deafault)
+install bs4
