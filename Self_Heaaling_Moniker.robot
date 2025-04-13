@@ -3,6 +3,7 @@ Library    OperatingSystem
 Library    Self_Heaaling_py.py
 Library    String
 Library    Process
+Library    DateTime
 
 *** Keywords ***
 Passed Teardown
@@ -22,11 +23,15 @@ Failed Teardown
         Get New Xpath and Update    ${Page_title}   ${TEST MESSAGE}
         SeleniumLibrary.Close Browser
         log to console  Re-Running Test Suite......
+        ${timestamp}=    Get Time    result_format=timestamp
+        ${log_folder}=   Set Variable    Re_Run_logs/${timestamp}/${TEST_NAME}
+        Create Directory    ${log_folder}
         ${current_Suite}   Get Current Running File
-        Run Process    robot    ${current_Suite}
-    ELSE
-        FAIL    Potienial Error Found
-    END
+        ${result}=    Run Process  robot    --test    ${TEST_NAME}    --outputdir    ${log_folder}    ${current_Suite}    shell=True
+        Log    ${result.stdout} 
+        ELSE
+            FAIL    Potienial Error Found
+        END
 
 Get New Xpath and Update
     [Arguments]  ${File_Name}   ${TEST MESSAGE}

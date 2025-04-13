@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.11.0 on win32)" generated="2025-04-12T22:06:28.006317" rpa="false" schemaversion="5">
+<suite id="s1" name="Self Heal" source="C:\Users\Microsoft\Desktop\Bits\SEM4\Self_Heal.robot">
+<kw name="Set Screenshot Directory" owner="SeleniumLibrary" type="SETUP">
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Screenshots</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" start="2025-04-12T22:06:43.081201" elapsed="0.000000"/>
+</kw>
+<test id="s1-t1" name="Test1 - Verify If User Is Able To Validate Home Page Details" line="11">
+<kw name="Open URL" owner="Bits_Site_keyword" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-12T22:06:43.089920" level="INFO">Opening browser 'Chrome' to base url 'file:///C:/Users/Microsoft/Desktop/Bits/Website/index.html'.</msg>
+<msg time="2025-04-12T22:06:43.867883" level="WARN">The chromedriver version (133.0.6943.53) detected in PATH at C:\Driver\chromedriver.exe might not be compatible with the detected chrome version (134.0.6998.178); currently, chromedriver 134.0.6998.165 is recommended for chrome 134.*, so it is advised to delete the driver in PATH and retry</msg>
+<arg>${URL}</arg>
+<arg>${browser}</arg>
+<arg>options=add_experimental_option("detach",True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-12T22:06:43.089920" elapsed="2.662306"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-04-12T22:06:45.752226" elapsed="0.105389"/>
+</kw>
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<status status="PASS" start="2025-04-12T22:06:43.089920" elapsed="2.767695"/>
+</kw>
+<kw name="Validate Home Page Details" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-04-12T22:06:45.881451" level="INFO">${Page_title} = Home - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-04-12T22:06:45.864734" elapsed="0.017719"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-04-12T22:06:45.890768" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Home - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styl...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-04-12T22:06:45.882453" elapsed="0.008315"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-04-12T22:06:45.895927" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-04-12T22:06:45.891771" elapsed="0.004156"/>
+</kw>
+<status status="PASS" start="2025-04-12T22:06:45.860693" elapsed="0.037076"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-12T22:06:45.899541" elapsed="0.574166"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-12T22:06:46.590310" level="INFO">${validate_Text} = Birla Institute of Technology and Science (BITS Pilani) is a premier institute in India, excelling in education, research, and innovation since 1964.</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T22:06:46.473707" elapsed="0.117604"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-12T22:06:46.592462" elapsed="0.002482"/>
+</kw>
+<arg>${about_bits_info_xpath}</arg>
+<arg>${about_bits_text}</arg>
+<status status="PASS" start="2025-04-12T22:06:45.897769" elapsed="0.698165"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-12T22:06:46.596937" elapsed="0.375375"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-12T22:06:47.103940" level="INFO">${validate_Text} = ✅ Ranked among India’s top private universities</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T22:06:46.973317" elapsed="0.131624"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-12T22:06:47.104941" elapsed="0.000999"/>
+</kw>
+<arg>${Choose_Bits_reason1_xpath}</arg>
+<arg>${Choose_Bits_reason1}</arg>
+<status status="PASS" start="2025-04-12T22:06:46.596937" elapsed="0.509003"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-12T22:06:47.109020" elapsed="0.327280"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-12T22:06:47.468867" level="INFO">${validate_Text} = ✅ Flexible academic structure with research opportunities</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T22:06:47.437433" elapsed="0.031974"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-12T22:06:47.469407" elapsed="0.000998"/>
+</kw>
+<arg>${Choose_Bits_reason2_xpath}</arg>
+<arg>${Choose_Bits_reason2}</arg>
+<status status="PASS" start="2025-04-12T22:06:47.106906" elapsed="0.363499"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-12T22:06:47.471575" elapsed="0.307574"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-12T22:06:47.818072" level="INFO">${validate_Text} = ✅ Industry collaborations with Google, Microsoft, Tesla</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T22:06:47.780148" elapsed="0.037924"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-12T22:06:47.818072" elapsed="0.001009"/>
+</kw>
+<arg>${Choose_Bits_reason3_xpath}</arg>
+<arg>${Choose_Bits_reason3}</arg>
+<status status="PASS" start="2025-04-12T22:06:47.470405" elapsed="0.349673"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-12T22:06:47.821072" elapsed="0.317513"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-12T22:06:48.233757" level="INFO">${validate_Text} = ✅ 50,000+ Global Alumni Network</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T22:06:48.138585" elapsed="0.095172"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-12T22:06:48.234739" elapsed="0.001004"/>
+</kw>
+<arg>${Choose_Bits_reason4_xpath}</arg>
+<arg>${Choose_Bits_reason4}</arg>
+<status status="PASS" start="2025-04-12T22:06:47.821072" elapsed="0.414671"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-12T22:06:48.238316" elapsed="0.319198"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-12T22:06:48.587931" level="INFO">${validate_Text} = 📍 Pilani (Main Campus)</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T22:06:48.557514" elapsed="0.030417"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-12T22:06:48.588698" elapsed="0.000000"/>
+</kw>
+<arg>${campus1_xpath}</arg>
+<arg>${campus1_text}</arg>
+<status status="PASS" start="2025-04-12T22:06:48.235743" elapsed="0.352955"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-12T22:06:48.588698" elapsed="0.288208"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-12T22:06:48.899680" level="INFO">${validate_Text} = 📍 Goa Campus</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T22:06:48.877261" elapsed="0.022419"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-12T22:06:48.900686" elapsed="0.000259"/>
+</kw>
+<arg>${campus2_xpath}</arg>
+<arg>${campus2_text}</arg>
+<status status="PASS" start="2025-04-12T22:06:48.588698" elapsed="0.312247"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-12T22:06:48.901945" elapsed="0.285739"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-12T22:06:49.221889" level="INFO">${validate_Text} = 📍 Hyderabad Campus</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T22:06:49.187684" elapsed="0.034205"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-12T22:06:49.221889" elapsed="0.001027"/>
+</kw>
+<arg>${campus3_xpath}</arg>
+<arg>${campus3_text}</arg>
+<status status="PASS" start="2025-04-12T22:06:48.900945" elapsed="0.322515"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-12T22:06:49.223932" elapsed="0.296074"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-12T22:06:49.545371" level="INFO">${validate_Text} = 📍 Dubai Campus</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T22:06:49.520006" elapsed="0.025365"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-12T22:06:49.545371" elapsed="0.000000"/>
+</kw>
+<arg>${campus4_xpath}</arg>
+<arg>${campus4_text}</arg>
+<status status="PASS" start="2025-04-12T22:06:49.223460" elapsed="0.322927"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-12T22:06:49.547263" elapsed="0.299999"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-12T22:06:49.874409" level="INFO">${validate_Text} = BITS Pilani offers Undergraduate, Postgraduate, and Ph.D. programs in engineering, management, and research.</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T22:06:49.847262" elapsed="0.027147"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-12T22:06:49.875411" elapsed="0.000000"/>
+</kw>
+<arg>${academic_info_xpath}</arg>
+<arg>${academic_info_text}</arg>
+<status status="PASS" start="2025-04-12T22:06:49.546387" elapsed="0.329024"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-12T22:06:49.877445" elapsed="0.300497"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-12T22:06:50.256473" level="INFO">${validate_Text} = Our students are placed in top companies like Google, Microsoft, Amazon, Tesla, and many more.</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T22:06:50.179456" elapsed="0.077017"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-12T22:06:50.256473" elapsed="0.003568"/>
+</kw>
+<arg>${placement_info_xpath}</arg>
+<arg>${placement_info_text}</arg>
+<status status="PASS" start="2025-04-12T22:06:49.876526" elapsed="0.383515"/>
+</kw>
+<status status="PASS" start="2025-04-12T22:06:45.859459" elapsed="4.401951"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">${placement_info_xpath}</arg>
+<arg>${placement_info_text}</arg>
+<status status="FAIL" start="2025-04-12T22:06:16.280625" elapsed="0.615064">Element with locator '//p[@id='placement_id']' not found.</status>
+</kw>
+<status status="FAIL" start="2025-04-12T22:06:11.971667" elapsed="4.925025">Element with locator '//p[@id='placement_id']' not found.</status>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${TEST STATUS}' == 'PASS'</arg>
+<arg>Passed Teardown</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-12T22:06:16.896692" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Failed Teardown" owner="Self_Heaaling_Moniker">
+<kw name="Verify Folder Exists And Is Not Empty" owner="Self_Heaaling_Moniker">
+<kw name="Directory Should Exist" owner="OperatingSystem">
+<msg time="2025-04-12T22:06:16.896692" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Passed_Logs"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Passed_Logs&lt;/a&gt;' exists.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Passed_Logs</arg>
+<arg>No Passed logs Found</arg>
+<doc>Fails unless the given path points to an existing directory.</doc>
+<status status="PASS" start="2025-04-12T22:06:16.896692" elapsed="0.000000"/>
+</kw>
+<kw name="List Files In Directory" owner="OperatingSystem">
+<msg time="2025-04-12T22:06:16.896692" level="INFO" html="true">Listing contents of directory '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Passed_Logs"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Passed_Logs&lt;/a&gt;'.</msg>
+<msg time="2025-04-12T22:06:16.896692" level="INFO">1 file:
+Home - BITS Pilani.txt</msg>
+<msg time="2025-04-12T22:06:16.896692" level="INFO">${FILES} = ['Home - BITS Pilani.txt']</msg>
+<var>${FILES}</var>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Passed_Logs</arg>
+<doc>Wrapper for `List Directory` that returns only files.</doc>
+<status status="PASS" start="2025-04-12T22:06:16.896692" elapsed="0.000000"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-04-12T22:06:16.896692" level="INFO">Length is 1.</msg>
+<arg>${FILES}</arg>
+<arg>No Passed logs Found</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-04-12T22:06:16.896692" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-12T22:06:16.896692" elapsed="0.000000"/>
+</kw>
+<kw name="Validate Error and Proceed" owner="Self_Heaaling_Moniker">
+<kw name="Convert To Lower Case" owner="String">
+<msg time="2025-04-12T22:06:16.896692" level="INFO">${error_message_lower} = element with locator '//p[@id='placement_id']' not found.</msg>
+<var>${error_message_lower}</var>
+<arg>${error_message}</arg>
+<doc>Converts string to lower case.</doc>
+<status status="PASS" start="2025-04-12T22:06:16.896692" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${error_message_lower}</arg>
+<arg>element with locator</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-04-12T22:06:16.896692" elapsed="0.000000"/>
+</kw>
+<msg time="2025-04-12T22:06:16.896692" level="INFO">${condition_1} = True</msg>
+<var>${condition_1}</var>
+<arg>Should Contain</arg>
+<arg>${error_message_lower}</arg>
+<arg>element with locator</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-04-12T22:06:16.896692" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-04-12T22:06:16.896692" level="FAIL">'element with locator '//p[@id='placement_id']' not found.' does not contain 'element not visible'</msg>
+<arg>${error_message_lower}</arg>
+<arg>element not visible</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-04-12T22:06:16.896692" elapsed="0.000000">'element with locator '//p[@id='placement_id']' not found.' does not contain 'element not visible'</status>
+</kw>
+<msg time="2025-04-12T22:06:16.896692" level="INFO">${condition_2} = False</msg>
+<var>${condition_2}</var>
+<arg>Should Contain</arg>
+<arg>${error_message_lower}</arg>
+<arg>element not visible</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-04-12T22:06:16.896692" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="${condition_1} or ${condition_2}">
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-04-12T22:06:16.896692" level="INFO">Returning from the enclosing user keyword.</msg>
+<arg>True</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-04-12T22:06:16.896692" elapsed="0.008042"/>
+</kw>
+<status status="PASS" start="2025-04-12T22:06:16.896692" elapsed="0.008161"/>
+</branch>
+<branch type="ELSE">
+<kw name="Return From Keyword" owner="BuiltIn">
+<arg>False</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="NOT RUN" start="2025-04-12T22:06:16.905863" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-04-12T22:06:16.904853" elapsed="0.001010"/>
+</branch>
+<status status="PASS" start="2025-04-12T22:06:16.896692" elapsed="0.009171"/>
+</if>
+<msg time="2025-04-12T22:06:16.905863" level="INFO">${Is_self_heal_Applicable} = True</msg>
+<var>${Is_self_heal_Applicable}</var>
+<arg>${TEST MESSAGE}</arg>
+<status status="PASS" start="2025-04-12T22:06:16.896692" elapsed="0.009171"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Is_self_heal_Applicable}'=='True'">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-12T22:06:16.906871" level="INFO">Element with locator '//p[@id='placement_id']' not found.</msg>
+<arg>${TEST MESSAGE}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-12T22:06:16.906871" elapsed="0.000000"/>
+</kw>
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-04-12T22:06:16.913833" level="INFO">${Page_title} = Home - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-04-12T22:06:16.907862" elapsed="0.005971"/>
+</kw>
+<kw name="Get New Xpath and Update" owner="Self_Heaaling_Moniker">
+<kw name="Extract Xpath Info" owner="Self_Heaaling_py">
+<msg time="2025-04-12T22:06:16.914832" level="INFO">${xpath_condition} = id="placement_id"</msg>
+<var>${xpath_condition}</var>
+<arg>${TEST MESSAGE}</arg>
+<status status="PASS" start="2025-04-12T22:06:16.914832" elapsed="0.000000"/>
+</kw>
+<kw name="Find Lines" owner="Self_Heaaling_py">
+<msg time="2025-04-12T22:06:16.914832" level="INFO">${Changes_Tag_Line} = &lt;p id="placement_id"&gt;Our students are placed in top companies like Google, Microsoft, Amazon, Tesla, and many more.&lt;/p&gt;</msg>
+<var>${Changes_Tag_Line}</var>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Passed_Logs\\${File_Name}.txt</arg>
+<arg>${xpath_condition}</arg>
+<status status="PASS" start="2025-04-12T22:06:16.914832" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-12T22:06:16.914832" level="INFO">&lt;p id="placement_id"&gt;Our students are placed in top companies like Google, Microsoft, Amazon, Tesla, and many more.&lt;/p&gt;</msg>
+<arg>${Changes_Tag_Line}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-12T22:06:16.914832" elapsed="0.000000"/>
+</kw>
+<kw name="Find Most Similar Line Sbert" owner="Self_Heaaling_py">
+<msg time="2025-04-12T22:06:16.914832" level="INFO">Use pytorch device_name: cpu</msg>
+<msg time="2025-04-12T22:06:16.914832" level="INFO">Load pretrained SentenceTransformer: all-MiniLM-L6-v2</msg>
+<msg time="2025-04-12T22:06:24.523304" level="INFO">Batches:   0%|          | 0/4 [00:00&lt;?, ?it/s]Batches:  25%|##5       | 1/4 [00:00&lt;00:01,  1.86it/s]Batches:  50%|#####     | 2/4 [00:00&lt;00:00,  2.64it/s]Batches:  75%|#######5  | 3/4 [00:00&lt;00:00,  3.65it/s]Batches: 100%|##########| 4/4 [00:00&lt;00:00,  4.15it/s]</msg>
+<msg time="2025-04-12T22:06:24.526999" level="INFO">${Similarity_And_Check} = ['&lt;p id="placement_id1"&gt;Our students are placed in top companies like Google, Microsoft, Amazon, Tesla, and many more.&lt;/p&gt;', 98.85993003845215]</msg>
+<var>${Similarity_And_Check}</var>
+<arg>${Changes_Tag_Line}</arg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${File_Name}.txt</arg>
+<status status="PASS" start="2025-04-12T22:06:16.914832" elapsed="7.612167"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-12T22:06:24.527840" level="INFO">['&lt;p id="placement_id1"&gt;Our students are placed in top companies like Google, Microsoft, Amazon, Tesla, and many more.&lt;/p&gt;', 98.85993003845215]</msg>
+<arg>${Similarity_And_Check}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-12T22:06:24.526999" elapsed="0.000841"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-12T22:06:24.528839" level="INFO">&lt;p id="placement_id1"&gt;Our students are placed in top companies like Google, Microsoft, Amazon, Tesla, and many more.&lt;/p&gt;</msg>
+<arg>${Similarity_And_Check[0]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-12T22:06:24.527840" elapsed="0.000999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-12T22:06:24.528839" level="INFO">98.85993003845215</msg>
+<arg>${Similarity_And_Check[1]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-12T22:06:24.528839" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="${Similarity_And_Check[1]}&lt;= 95">
+<kw name="Get Desired Change Path" owner="Self_Heaaling_Moniker">
+<arg>${Changes_Tag_Line}</arg>
+<arg>${File_Name}</arg>
+<status status="NOT RUN" start="2025-04-12T22:06:24.528839" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-04-12T22:06:24.528839" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE">
+<kw name="Generate Xpath" owner="Self_Heaaling_py">
+<msg time="2025-04-12T22:06:24.528839" level="INFO">${Desired_Xpath} = //p[@id='placement_id1']</msg>
+<var>${Desired_Xpath}</var>
+<arg>${Similarity_And_Check[0]}</arg>
+<status status="PASS" start="2025-04-12T22:06:24.528839" elapsed="0.000000"/>
+</kw>
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2025-04-12T22:06:24.528839" level="INFO">${Current_Xpath} = ["//p[@id='placement_id']"]</msg>
+<var>${Current_Xpath}</var>
+<arg>${TEST MESSAGE}</arg>
+<arg>(//.*?])</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2025-04-12T22:06:24.528839" elapsed="0.000000"/>
+</kw>
+<kw name="Find And Replace Text" owner="Self_Heaaling_py">
+<msg time="2025-04-12T22:06:24.542936" level="INFO">re.compile("(\\${\\w+}\\s+)//p\\[@id='placement_id'\\]")
+Updated file: C:\Users\Microsoft\Desktop\Bits\SEM4\Bits_Site_Variable.robot</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4</arg>
+<arg>${Current_Xpath[0]}</arg>
+<arg>${Desired_Xpath}</arg>
+<status status="PASS" start="2025-04-12T22:06:24.528839" elapsed="0.015102"/>
+</kw>
+<status status="PASS" start="2025-04-12T22:06:24.528839" elapsed="0.015754"/>
+</branch>
+<status status="PASS" start="2025-04-12T22:06:24.528839" elapsed="0.015885"/>
+</if>
+<arg>${Page_title}</arg>
+<arg>${TEST MESSAGE}</arg>
+<status status="PASS" start="2025-04-12T22:06:16.913833" elapsed="7.630891"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-12T22:06:24.545128" elapsed="2.297304"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Re-Running Test Suite......</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-04-12T22:06:26.843488" elapsed="0.001943"/>
+</kw>
+<kw name="Get Time" owner="BuiltIn">
+<msg time="2025-04-12T22:06:26.850330" level="INFO">${timestamp} = None</msg>
+<msg time="2025-04-12T22:06:26.850330" level="FAIL">ValueError: Invalid time format 'exclude_millis=yes'.</msg>
+<var>${timestamp}</var>
+<arg>result_format=timestamp</arg>
+<arg>exclude_millis=yes</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="FAIL" start="2025-04-12T22:06:26.846431" elapsed="0.004895">ValueError: Invalid time format 'exclude_millis=yes'.</status>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-12T22:06:26.852329" level="INFO">${log_folder} = Re_Run_logs/None/Test1 - Verify If User Is Able To Validate Home Page Details</msg>
+<var>${log_folder}</var>
+<arg>Re_Run_logs/${timestamp}/${TEST_NAME}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-12T22:06:26.852329" elapsed="0.001577"/>
+</kw>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-04-12T22:06:26.854921" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Re_Run_logs\None\Test1 - Verify If User Is Able To Validate Home Page Details"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Re_Run_logs\None\Test1 - Verify If User Is Able To Validate Home Page Details&lt;/a&gt;' already exists.</msg>
+<arg>${log_folder}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-04-12T22:06:26.854921" elapsed="0.000000"/>
+</kw>
+<kw name="Get Current Running File" owner="Self_Heaaling_Moniker">
+<kw name="Get Variable Value" owner="BuiltIn">
+<msg time="2025-04-12T22:06:26.863857" level="INFO">${path} = C:\Users\Microsoft\Desktop\Bits\SEM4\Self_Heal.robot</msg>
+<var>${path}</var>
+<arg>${SUITE SOURCE}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<status status="PASS" start="2025-04-12T22:06:26.854921" elapsed="0.008936"/>
+</kw>
+<kw name="Split String From Right" owner="String">
+<msg time="2025-04-12T22:06:26.868132" level="INFO">${filename} = ['C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4', 'Self_Heal.robot']</msg>
+<var>${filename}</var>
+<arg>${path}</arg>
+<arg>\\</arg>
+<arg>1</arg>
+<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
+<status status="PASS" start="2025-04-12T22:06:26.864853" elapsed="0.003279"/>
+</kw>
+<return>
+<value>${filename[1]}</value>
+<status status="PASS" start="2025-04-12T22:06:26.869166" elapsed="0.000000"/>
+</return>
+<msg time="2025-04-12T22:06:26.872415" level="INFO">${current_Suite} = Self_Heal.robot</msg>
+<var>${current_Suite}</var>
+<status status="PASS" start="2025-04-12T22:06:26.854921" elapsed="0.017494"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-04-12T22:06:26.872415" level="INFO">Starting process:
+robot --test "Test1 - Verify If User Is Able To Validate Home Page Details" --outputdir "Re_Run_logs/None/Test1 - Verify If User Is Able To Validate Home Page Details" Self_Heal.robot</msg>
+<msg time="2025-04-12T22:06:26.909475" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-04-12T22:06:54.677746" level="INFO">Process completed.</msg>
+<msg time="2025-04-12T22:06:54.678738" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>robot</arg>
+<arg>--test</arg>
+<arg>${TEST_NAME}</arg>
+<arg>--outputdir</arg>
+<arg>${log_folder}</arg>
+<arg>${current_Suite}</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-04-12T22:06:26.872415" elapsed="27.806323"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-12T22:06:54.686128" level="INFO">==============================================================================
+Self Heal                                                                     
+==============================================================================
+Test1 - Verify If User Is Able To Validate Home Page Details          | PASS |
+------------------------------------------------------------------------------
+Self Heal                                                             | PASS |
+1 test, 1 passed, 0 failed
+==============================================================================
+Output:  C:\Users\Microsoft\Desktop\Bits\SEM4\Re_Run_logs\None\Test1 - Verify If User Is Able To Validate Home Page Details\output.xml
+Log:     C:\Users\Microsoft\Desktop\Bits\SEM4\Re_Run_logs\None\Test1 - Verify If User Is Able To Validate Home Page Details\log.html
+Report:  C:\Users\Microsoft\Desktop\Bits\SEM4\Re_Run_logs\None\Test1 - Verify If User Is Able To Validate Home Page Details\report.html</msg>
+<arg>${result.stdout}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-12T22:06:54.678738" elapsed="0.007390"/>
+</kw>
+<status status="FAIL" start="2025-04-12T22:06:16.906871" elapsed="37.779257">ValueError: Invalid time format 'exclude_millis=yes'.</status>
+</branch>
+<branch type="ELSE">
+<kw name="Fail" owner="BuiltIn">
+<arg>Potienial Error Found</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-04-12T22:06:54.687129" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-04-12T22:06:54.687129" elapsed="0.000000"/>
+</branch>
+<status status="FAIL" start="2025-04-12T22:06:16.905863" elapsed="37.781266">ValueError: Invalid time format 'exclude_millis=yes'.</status>
+</if>
+<status status="FAIL" start="2025-04-12T22:06:16.896692" elapsed="37.790437">ValueError: Invalid time format 'exclude_millis=yes'.</status>
+</kw>
+<arg>'${TEST STATUS}' == 'FAIL'</arg>
+<arg>Failed Teardown</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-04-12T22:06:16.896692" elapsed="37.790437">ValueError: Invalid time format 'exclude_millis=yes'.</status>
+</kw>
+<arg>Run Keyword If</arg>
+<arg>'${TEST STATUS}' == 'PASS'</arg>
+<arg>Passed Teardown</arg>
+<arg>AND</arg>
+<arg>Run Keyword If</arg>
+<arg>'${TEST STATUS}' == 'FAIL'</arg>
+<arg>Failed Teardown</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="FAIL" start="2025-04-12T22:06:16.896692" elapsed="37.790437">ValueError: Invalid time format 'exclude_millis=yes'.</status>
+</kw>
+<status status="FAIL" start="2025-04-12T22:06:08.801339" elapsed="45.885790">Element with locator '//p[@id='placement_id']' not found.
+
+Also teardown failed:
+ValueError: Invalid time format 'exclude_millis=yes'.</status>
+</test>
+<status status="FAIL" start="2025-04-12T22:05:51.897312" elapsed="62.789817"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Self Heal" id="s1" pass="0" fail="1" skip="0">Self Heal</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-04-12T22:06:09.606059" level="WARN">The chromedriver version (133.0.6943.53) detected in PATH at C:\Driver\chromedriver.exe might not be compatible with the detected chrome version (134.0.6998.178); currently, chromedriver 134.0.6998.165 is recommended for chrome 134.*, so it is advised to delete the driver in PATH and retry</msg>
+</errors>
+</robot>

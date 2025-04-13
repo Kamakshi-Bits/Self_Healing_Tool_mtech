@@ -81,7 +81,7 @@
     <!-- Academics Section -->
     <section class="academics">
         <h2>🎓 Academic Excellence</h2>
-        <p id="academics_id">BITS Pilani offers Undergraduate, Postgraduate, and Ph.D. programs in engineering, management, and research.</p>
+        <p id="academics_id1">BITS Pilani offers Undergraduate, Postgraduate, and Ph.D. programs in engineering, management, and research.</p>
     </section>
 
     <!-- Placements Section -->

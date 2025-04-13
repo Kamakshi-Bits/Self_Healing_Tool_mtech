@@ -1,608 +1,400 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.11.0 on win32)" generated="2025-04-05T23:08:20.045217" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2.2 (Python 3.11.0 on win32)" generated="2025-04-14T00:07:47.428229" rpa="false" schemaversion="5">
 <suite id="s1" name="Self Heal" source="C:\Users\Microsoft\Desktop\Bits\SEM4\Self_Heal.robot">
 <kw name="Set Screenshot Directory" owner="SeleniumLibrary" type="SETUP">
 <arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Screenshots</arg>
 <doc>Sets the directory for captured screenshots.</doc>
-<status status="PASS" start="2025-04-05T23:08:54.221935" elapsed="0.000000"/>
+<status status="PASS" start="2025-04-14T00:08:01.145323" elapsed="0.000000"/>
 </kw>
-<test id="s1-t1" name="Test1 - Verify If User Is Able To Validate Home Page Details" line="36">
-<kw name="Open URL">
+<test id="s1-t1" name="Test3 - Verify If User Is Validate Important Details" line="24">
+<kw name="Open URL" owner="Bits_Site_keyword" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-04-05T23:08:54.221935" level="INFO">Opening browser 'Chrome' to base url 'file:///C:/Users/Microsoft/Desktop/Bits/Website/index.html'.</msg>
-<msg time="2025-04-05T23:08:54.947242" level="WARN">The chromedriver version (133.0.6943.53) detected in PATH at C:\Driver\chromedriver.exe might not be compatible with the detected chrome version (134.0.6998.178); currently, chromedriver 134.0.6998.165 is recommended for chrome 134.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg time="2025-04-14T00:08:01.145323" level="INFO">Opening browser 'Chrome' to base url 'file:///C:/Users/Microsoft/Desktop/Bits/Website/index.html'.</msg>
+<msg time="2025-04-14T00:08:01.824336" level="WARN">The chromedriver version (133.0.6943.53) detected in PATH at C:\Driver\chromedriver.exe might not be compatible with the detected chrome version (134.0.6998.178); currently, chromedriver 134.0.6998.165 is recommended for chrome 134.*, so it is advised to delete the driver in PATH and retry</msg>
 <arg>${URL}</arg>
 <arg>${browser}</arg>
 <arg>options=add_experimental_option("detach",True)</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-04-05T23:08:54.221935" elapsed="2.712099"/>
+<status status="PASS" start="2025-04-14T00:08:01.145323" elapsed="2.891611"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-04-05T23:08:56.934034" elapsed="0.090506"/>
+<status status="PASS" start="2025-04-14T00:08:04.038938" elapsed="0.078577"/>
 </kw>
 <arg>${URL}</arg>
 <arg>Chrome</arg>
-<status status="PASS" start="2025-04-05T23:08:54.221935" elapsed="2.802605"/>
+<status status="PASS" start="2025-04-14T00:08:01.145323" elapsed="2.972192"/>
 </kw>
-<kw name="Validate Home Page Details">
-<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
-<kw name="Get Title" owner="SeleniumLibrary">
-<msg time="2025-04-05T23:08:57.053564" level="INFO">${Page_title} = Home - BITS Pilani</msg>
-<var>${Page_title}</var>
-<doc>Returns the title of the current page.</doc>
-<status status="PASS" start="2025-04-05T23:08:57.027574" elapsed="0.025990"/>
+<kw name="Validate Important Details" owner="Bits_Site_keyword">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-14T00:08:04.124989" level="INFO">Clicking element '//a[@id="updates"]'.</msg>
+<arg>${important_Updates_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-14T00:08:04.120899" elapsed="0.268992"/>
 </kw>
-<kw name="Get Source" owner="SeleniumLibrary">
-<msg time="2025-04-05T23:08:57.061321" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Home - BITS Pilani&lt;/title&gt;
-    &lt;link rel="stylesheet" href="styl...</msg>
-<var>${Page_Source}</var>
-<doc>Returns the entire HTML source of the current page or frame.</doc>
-<status status="PASS" start="2025-04-05T23:08:57.055099" elapsed="0.006222"/>
-</kw>
-<kw name="Create File" owner="OperatingSystem">
-<msg time="2025-04-05T23:08:57.069271" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt&lt;/a&gt;'.</msg>
-<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
-<arg>${Page_Source}</arg>
-<doc>Creates a file with the given content and encoding.</doc>
-<status status="PASS" start="2025-04-05T23:08:57.064024" elapsed="0.005247"/>
-</kw>
-<status status="PASS" start="2025-04-05T23:08:57.026538" elapsed="0.043720"/>
-</kw>
-<kw name="Validate Text On Home Page">
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${Validation_Path}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-04-05T23:08:57.071576" elapsed="0.459026"/>
-</kw>
+<kw name="Validate Sections" owner="Bits_Site_keyword">
+<kw name="Get text and Return" owner="Bits_Site_keyword">
 <kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-04-05T23:08:57.567946" level="INFO">${validate_Text} = Birla Institute of Technology and Science (BITS Pilani) is a premier institute in India, excelling in education, research, and innovation since 1964.</msg>
-<var>${validate_Text}</var>
-<arg>${Validation_Path}</arg>
+<msg time="2025-04-14T00:08:04.437390" level="INFO">${text} = 🔥 Admissions Open for 2025-26
+Last Date to Apply: July 15, 2025
+Location: BITS Pilani, All Campuses
+Apply Now</msg>
+<var>${text}</var>
+<arg>${display_field_Xpath}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-05T23:08:57.531603" elapsed="0.036343"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${validate_Text}</arg>
-<arg>${From_Validate_text}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-04-05T23:08:57.568945" elapsed="0.000000"/>
-</kw>
-<arg>${about_bits_info_xpath}</arg>
-<arg>${about_bits_text}</arg>
-<status status="PASS" start="2025-04-05T23:08:57.070258" elapsed="0.498687"/>
-</kw>
-<kw name="Validate Text On Home Page">
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${Validation_Path}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-04-05T23:08:57.568945" elapsed="0.328214"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-04-05T23:08:57.924201" level="INFO">${validate_Text} = ✅ Ranked among India’s top private universities</msg>
-<var>${validate_Text}</var>
-<arg>${Validation_Path}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-05T23:08:57.898160" elapsed="0.026041"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${validate_Text}</arg>
-<arg>${From_Validate_text}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-04-05T23:08:57.924201" elapsed="0.000000"/>
-</kw>
-<arg>${Choose_Bits_reason1_xpath}</arg>
-<arg>${Choose_Bits_reason1}</arg>
-<status status="PASS" start="2025-04-05T23:08:57.568945" elapsed="0.355256"/>
-</kw>
-<kw name="Validate Text On Home Page">
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${Validation_Path}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-04-05T23:08:57.924201" elapsed="0.328574"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-04-05T23:08:58.268344" level="INFO">${validate_Text} = ✅ Flexible academic structure with research opportunities</msg>
-<var>${validate_Text}</var>
-<arg>${Validation_Path}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-05T23:08:58.252775" elapsed="0.015569"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${validate_Text}</arg>
-<arg>${From_Validate_text}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-04-05T23:08:58.268344" elapsed="0.000000"/>
-</kw>
-<arg>${Choose_Bits_reason2_xpath}</arg>
-<arg>${Choose_Bits_reason2}</arg>
-<status status="PASS" start="2025-04-05T23:08:57.924201" elapsed="0.344143"/>
-</kw>
-<kw name="Validate Text On Home Page">
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${Validation_Path}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-04-05T23:08:58.268344" elapsed="0.345333"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-04-05T23:08:58.643651" level="INFO">${validate_Text} = ✅ Industry collaborations with Google, Microsoft, Tesla</msg>
-<var>${validate_Text}</var>
-<arg>${Validation_Path}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-05T23:08:58.613677" elapsed="0.029974"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${validate_Text}</arg>
-<arg>${From_Validate_text}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-04-05T23:08:58.643651" elapsed="0.000000"/>
-</kw>
-<arg>${Choose_Bits_reason3_xpath}</arg>
-<arg>${Choose_Bits_reason3}</arg>
-<status status="PASS" start="2025-04-05T23:08:58.268344" elapsed="0.375307"/>
-</kw>
-<kw name="Validate Text On Home Page">
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${Validation_Path}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-04-05T23:08:58.643651" elapsed="0.340823"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-04-05T23:08:59.055618" level="INFO">${validate_Text} = ✅ 50,000+ Global Alumni Network</msg>
-<var>${validate_Text}</var>
-<arg>${Validation_Path}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-05T23:08:58.985477" elapsed="0.070141"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${validate_Text}</arg>
-<arg>${From_Validate_text}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-04-05T23:08:59.056623" elapsed="0.000211"/>
-</kw>
-<arg>${Choose_Bits_reason4_xpath}</arg>
-<arg>${Choose_Bits_reason4}</arg>
-<status status="PASS" start="2025-04-05T23:08:58.643651" elapsed="0.414183"/>
-</kw>
-<kw name="Validate Text On Home Page">
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${Validation_Path}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-04-05T23:08:59.059838" elapsed="0.402338"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-04-05T23:08:59.501869" level="INFO">${validate_Text} = 📍 Pilani (Main Campus)</msg>
-<var>${validate_Text}</var>
-<arg>${Validation_Path}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-05T23:08:59.462176" elapsed="0.039693"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${validate_Text}</arg>
-<arg>${From_Validate_text}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-04-05T23:08:59.502739" elapsed="0.000541"/>
-</kw>
-<arg>${campus1_xpath}</arg>
-<arg>${campus1_text}</arg>
-<status status="PASS" start="2025-04-05T23:08:59.058960" elapsed="0.444320"/>
-</kw>
-<kw name="Validate Text On Home Page">
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${Validation_Path}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-04-05T23:08:59.504281" elapsed="0.296935"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-04-05T23:08:59.850628" level="INFO">${validate_Text} = 📍 Goa Campus</msg>
-<var>${validate_Text}</var>
-<arg>${Validation_Path}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-05T23:08:59.802213" elapsed="0.048415"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${validate_Text}</arg>
-<arg>${From_Validate_text}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-04-05T23:08:59.850628" elapsed="0.000000"/>
-</kw>
-<arg>${campus2_xpath}</arg>
-<arg>${campus2_text}</arg>
-<status status="PASS" start="2025-04-05T23:08:59.503280" elapsed="0.347348"/>
-</kw>
-<kw name="Validate Text On Home Page">
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${Validation_Path}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-04-05T23:08:59.850628" elapsed="0.324076"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-04-05T23:09:00.204752" level="INFO">${validate_Text} = 📍 Hyderabad Campus</msg>
-<var>${validate_Text}</var>
-<arg>${Validation_Path}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-05T23:09:00.174704" elapsed="0.030048"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${validate_Text}</arg>
-<arg>${From_Validate_text}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-04-05T23:09:00.204752" elapsed="0.000000"/>
-</kw>
-<arg>${campus3_xpath}</arg>
-<arg>${campus3_text}</arg>
-<status status="PASS" start="2025-04-05T23:08:59.850628" elapsed="0.354124"/>
-</kw>
-<kw name="Validate Text On Home Page">
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${Validation_Path}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-04-05T23:09:00.204752" elapsed="0.295049"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-04-05T23:09:00.523181" level="INFO">${validate_Text} = 📍 Dubai Campus</msg>
-<var>${validate_Text}</var>
-<arg>${Validation_Path}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-05T23:09:00.499801" elapsed="0.023380"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${validate_Text}</arg>
-<arg>${From_Validate_text}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-04-05T23:09:00.524182" elapsed="0.000254"/>
-</kw>
-<arg>${campus4_xpath}</arg>
-<arg>${campus4_text}</arg>
-<status status="PASS" start="2025-04-05T23:09:00.204752" elapsed="0.319684"/>
-</kw>
-<kw name="Validate Text On Home Page">
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${Validation_Path}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-04-05T23:09:00.525441" elapsed="0.314103"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-04-05T23:09:00.875927" level="INFO">${validate_Text} = BITS Pilani offers Undergraduate, Postgraduate, and Ph.D. programs in engineering, management, and research.</msg>
-<var>${validate_Text}</var>
-<arg>${Validation_Path}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-05T23:09:00.839544" elapsed="0.036383"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${validate_Text}</arg>
-<arg>${From_Validate_text}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-04-05T23:09:00.875927" elapsed="0.000000"/>
-</kw>
-<arg>${academic_info_xpath}</arg>
-<arg>${academic_info_text}</arg>
-<status status="PASS" start="2025-04-05T23:09:00.524436" elapsed="0.351491"/>
-</kw>
-<kw name="Validate Text On Home Page">
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${Validation_Path}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-04-05T23:09:00.875927" elapsed="0.325046"/>
-</kw>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-04-05T23:09:01.219628" level="INFO">${validate_Text} = Our students are placed in top companies like Google, Microsoft, Amazon, Tesla, and many more.</msg>
-<var>${validate_Text}</var>
-<arg>${Validation_Path}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-04-05T23:09:01.200973" elapsed="0.018655"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${validate_Text}</arg>
-<arg>${From_Validate_text}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-04-05T23:09:01.219628" elapsed="0.000000"/>
-</kw>
-<arg>${placement_info_xpath}</arg>
-<arg>${placement_info_text}</arg>
-<status status="PASS" start="2025-04-05T23:09:00.875927" elapsed="0.343701"/>
-</kw>
-<status status="PASS" start="2025-04-05T23:08:57.025537" elapsed="4.194091"/>
-</kw>
-<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Passed Teardown" owner="Self_Heaaling_Moniker">
-<kw name="Copy Files" owner="OperatingSystem">
-<msg time="2025-04-05T23:09:01.234413" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt&lt;/<kw name="Run Keyword If" owner="BuiltIn">
-<arg>'${TEST STATUS}' == 'PASS'</arg>
-<arg>Passed Teardown</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-04-05T23:08:09.978648" elapsed="0.000000"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Failed Teardown" owner="Self_Heaaling_Moniker">
-<kw name="Verify Folder Exists And Is Not Empty" owner="Self_Heaaling_Moniker">
-<kw name="Directory Should Exist" owner="OperatingSystem">
-<msg time="2025-04-05T23:08:09.986718" level="INFO" html="true">Directory '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Passed_Logs"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Passed_Logs&lt;/a&gt;' exists.</msg>
-<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Passed_Logs</arg>
-<arg>No Passed logs Found</arg>
-<doc>Fails unless the given path points to an existing directory.</doc>
-<status status="PASS" start="2025-04-05T23:08:09.978648" elapsed="0.009002"/>
-</kw>
-<kw name="List Files In Directory" owner="OperatingSystem">
-<msg time="2025-04-05T23:08:09.988652" level="INFO" html="true">Listing contents of directory '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Passed_Logs"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Passed_Logs&lt;/a&gt;'.</msg>
-<msg time="2025-04-05T23:08:10.001225" level="INFO">1 file:
-Home - BITS Pilani.txt</msg>
-<msg time="2025-04-05T23:08:10.001225" level="INFO">${FILES} = ['Home - BITS Pilani.txt']</msg>
-<var>${FILES}</var>
-<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Passed_Logs</arg>
-<doc>Wrapper for `List Directory` that returns only files.</doc>
-<status status="PASS" start="2025-04-05T23:08:09.987650" elapsed="0.013575"/>
-</kw>
-<kw name="Should Not Be Empty" owner="BuiltIn">
-<msg time="2025-04-05T23:08:10.001225" level="INFO">Length is 1.</msg>
-<arg>${FILES}</arg>
-<arg>No Passed logs Found</arg>
-<doc>Verifies that the given item is not empty.</doc>
-<status status="PASS" start="2025-04-05T23:08:10.001225" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2025-04-05T23:08:09.978648" elapsed="0.022577"/>
-</kw>
-<kw name="Validate Error and Proceed" owner="Self_Heaaling_Moniker">
-<kw name="Convert To Lower Case" owner="String">
-<msg time="2025-04-05T23:08:10.009274" level="INFO">${error_message_lower} = element with locator '//p[@id='placement_id']' not found.</msg>
-<var>${error_message_lower}</var>
-<arg>${error_message}</arg>
-<doc>Converts string to lower case.</doc>
-<status status="PASS" start="2025-04-05T23:08:10.005775" elapsed="0.003499"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<arg>${error_message_lower}</arg>
-<arg>element with locator</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-04-05T23:08:10.013328" elapsed="0.000994"/>
-</kw>
-<msg time="2025-04-05T23:08:10.014322" level="INFO">${condition_1} = True</msg>
-<var>${condition_1}</var>
-<arg>Should Contain</arg>
-<arg>${error_message_lower}</arg>
-<arg>element with locator</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-04-05T23:08:10.010444" elapsed="0.004879"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Contain" owner="BuiltIn">
-<msg time="2025-04-05T23:08:10.018619" level="FAIL">'element with locator '//p[@id='placement_id']' not found.' does not contain 'element not visible'</msg>
-<arg>${error_message_lower}</arg>
-<arg>element not visible</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="FAIL" start="2025-04-05T23:08:10.016321" elapsed="0.002298">'element with locator '//p[@id='placement_id']' not found.' does not contain 'element not visible'</status>
-</kw>
-<msg time="2025-04-05T23:08:10.019624" level="INFO">${condition_2} = False</msg>
-<var>${condition_2}</var>
-<arg>Should Contain</arg>
-<arg>${error_message_lower}</arg>
-<arg>element not visible</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-04-05T23:08:10.015323" elapsed="0.004301"/>
-</kw>
-<if>
-<branch type="IF" condition="${condition_1} or ${condition_2}">
-<kw name="Return From Keyword" owner="BuiltIn">
-<msg time="2025-04-05T23:08:10.021469" level="INFO">Returning from the enclosing user keyword.</msg>
-<arg>True</arg>
-<doc>Returns from the enclosing user keyword.</doc>
-<status status="PASS" start="2025-04-05T23:08:10.021469" elapsed="0.000996"/>
-</kw>
-<status status="PASS" start="2025-04-05T23:08:10.019624" elapsed="0.002841"/>
-</branch>
-<branch type="ELSE">
-<kw name="Return From Keyword" owner="BuiltIn">
-<arg>False</arg>
-<doc>Returns from the enclosing user keyword.</doc>
-<status status="NOT RUN" start="2025-04-05T23:08:10.045036" elapsed="0.000000"/>
-</kw>
-<status status="NOT RUN" start="2025-04-05T23:08:10.022465" elapsed="0.022571"/>
-</branch>
-<status status="PASS" start="2025-04-05T23:08:10.019624" elapsed="0.025412"/>
-</if>
-<msg time="2025-04-05T23:08:10.046034" level="INFO">${Is_self_heal_Applicable} = True</msg>
-<var>${Is_self_heal_Applicable}</var>
-<arg>${TEST MESSAGE}</arg>
-<status status="PASS" start="2025-04-05T23:08:10.001225" elapsed="0.044809"/>
-</kw>
-<if>
-<branch type="IF" condition="'${Is_self_heal_Applicable}'=='True'">
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-04-05T23:08:10.047176" level="INFO">Element with locator '//p[@id='placement_id']' not found.</msg>
-<arg>${TEST MESSAGE}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-05T23:08:10.047176" elapsed="0.000000"/>
-</kw>
-<kw name="Get Title" owner="SeleniumLibrary">
-<msg time="2025-04-05T23:08:10.118672" level="INFO">${Page_title} = Home - BITS Pilani</msg>
-<var>${Page_title}</var>
-<doc>Returns the title of the current page.</doc>
-<status status="PASS" start="2025-04-05T23:08:10.048266" elapsed="0.070406"/>
-</kw>
-<kw name="Get New Xpath and Update" owner="Self_Heaaling_Moniker">
-<kw name="Extract Xpath Info" owner="Self_Heaaling_py">
-<msg time="2025-04-05T23:08:10.122673" level="INFO">${xpath_condition} = id="placement_id"</msg>
-<var>${xpath_condition}</var>
-<arg>${TEST MESSAGE}</arg>
-<status status="PASS" start="2025-04-05T23:08:10.121013" elapsed="0.001660"/>
-</kw>
-<kw name="Find Lines" owner="Self_Heaaling_py">
-<msg time="2025-04-05T23:08:10.124445" level="INFO">${Changes_Tag_Line} = &lt;p id="placement_id"&gt;Our students are placed in top companies like Google, Microsoft, Amazon, Tesla, and many more.&lt;/p&gt;</msg>
-<var>${Changes_Tag_Line}</var>
-<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Passed_Logs\\${File_Name}.txt</arg>
-<arg>${xpath_condition}</arg>
-<status status="PASS" start="2025-04-05T23:08:10.122673" elapsed="0.001772"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-04-05T23:08:10.125402" level="INFO">&lt;p id="placement_id"&gt;Our students are placed in top companies like Google, Microsoft, Amazon, Tesla, and many more.&lt;/p&gt;</msg>
-<arg>${Changes_Tag_Line}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-05T23:08:10.125402" elapsed="0.000000"/>
-</kw>
-<kw name="Find Most Similar Line Sbert" owner="Self_Heaaling_py">
-<msg time="2025-04-05T23:08:10.131211" level="INFO">Use pytorch device_name: cpu</msg>
-<msg time="2025-04-05T23:08:10.131211" level="INFO">Load pretrained SentenceTransformer: all-MiniLM-L6-v2</msg>
-<msg time="2025-04-05T23:08:16.813137" level="INFO">Batches:   0%|                                                                                    | 0/4 [00:00&lt;?, ?it/s]Batches:  25%|###################                                                         | 1/4 [00:00&lt;00:02,  1.45it/s]Batches:  50%|######################################                                      | 2/4 [00:01&lt;00:01,  1.70it/s]Batches:  75%|#########################################################                   | 3/4 [00:01&lt;00:00,  2.26it/s]Batches: 100%|############################################################################| 4/4 [00:01&lt;00:00,  2.64it/s]</msg>
-<msg time="2025-04-05T23:08:16.816560" level="INFO">${Similarity_And_Check} = ['&lt;p id="placement_id1"&gt;Our students are placed in top companies like Google, Microsoft, Amazon, Tesla, and many more.&lt;/p&gt;', 98.85993003845215]</msg>
-<var>${Similarity_And_Check}</var>
-<arg>${Changes_Tag_Line}</arg>
-<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${File_Name}.txt</arg>
-<status status="PASS" start="2025-04-05T23:08:10.126211" elapsed="6.691348"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-04-05T23:08:16.818562" level="INFO">['&lt;p id="placement_id1"&gt;Our students are placed in top companies like Google, Microsoft, Amazon, Tesla, and many more.&lt;/p&gt;', 98.85993003845215]</msg>
-<arg>${Similarity_And_Check}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-05T23:08:16.817559" elapsed="0.001003"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-04-05T23:08:16.820557" level="INFO">&lt;p id="placement_id1"&gt;Our students are placed in top companies like Google, Microsoft, Amazon, Tesla, and many more.&lt;/p&gt;</msg>
-<arg>${Similarity_And_Check[0]}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-05T23:08:16.818562" elapsed="0.001995"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-04-05T23:08:16.822557" level="INFO">98.85993003845215</msg>
-<arg>${Similarity_And_Check[1]}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-05T23:08:16.820557" elapsed="0.002000"/>
-</kw>
-<if>
-<branch type="IF" condition="${Similarity_And_Check[1]}&lt;= 95">
-<kw name="Get Desired Change Path" owner="Self_Heaaling_Moniker">
-<arg>${Changes_Tag_Line}</arg>
-<arg>${File_Name}</arg>
-<status status="NOT RUN" start="2025-04-05T23:08:16.822557" elapsed="0.000000"/>
-</kw>
-<status status="NOT RUN" start="2025-04-05T23:08:16.822557" elapsed="0.000000"/>
-</branch>
-<branch type="ELSE">
-<kw name="Generate Xpath" owner="Self_Heaaling_py">
-<msg time="2025-04-05T23:08:16.822557" level="INFO">${Desired_Xpath} = //p[@id='placement_id1']</msg>
-<var>${Desired_Xpath}</var>
-<arg>${Similarity_And_Check[0]}</arg>
-<status status="PASS" start="2025-04-05T23:08:16.822557" elapsed="0.000000"/>
-</kw>
-<kw name="Get Regexp Matches" owner="String">
-<msg time="2025-04-05T23:08:16.822557" level="INFO">${Current_Xpath} = ["//p[@id='placement_id']"]</msg>
-<var>${Current_Xpath}</var>
-<arg>${TEST MESSAGE}</arg>
-<arg>(//.*?])</arg>
-<doc>Returns a list of all non-overlapping matches in the given string.</doc>
-<status status="PASS" start="2025-04-05T23:08:16.822557" elapsed="0.000000"/>
-</kw>
-<kw name="Find And Replace Text" owner="Self_Heaaling_py">
-<msg time="2025-04-05T23:08:16.842630" level="INFO">re.compile("(\\${\\w+}\\s+)//p\\[@id='placement_id'\\]")
-Updated file: C:\Users\Microsoft\Desktop\Bits\SEM4\Self_Heal.robot</msg>
-<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4</arg>
-<arg>${Current_Xpath[0]}</arg>
-<arg>${Desired_Xpath}</arg>
-<status status="PASS" start="2025-04-05T23:08:16.829950" elapsed="0.012680"/>
-</kw>
-<status status="PASS" start="2025-04-05T23:08:16.822557" elapsed="0.020073"/>
-</branch>
-<status status="PASS" start="2025-04-05T23:08:16.822557" elapsed="0.020073"/>
-</if>
-<arg>${Page_title}</arg>
-<arg>${TEST MESSAGE}</arg>
-<status status="PASS" start="2025-04-05T23:08:10.120003" elapsed="6.722627"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-05T23:08:16.842630" elapsed="2.353200"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Re-Running Test Suite......</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-04-05T23:08:19.195830" elapsed="0.001780"/>
-</kw>
-<kw name="Get Current Running File" owner="Self_Heaaling_Moniker">
-<kw name="Get Variable Value" owner="BuiltIn">
-<msg time="2025-04-05T23:08:19.197610" level="INFO">${path} = C:\Users\Microsoft\Desktop\Bits\SEM4\Self_Heal.robot</msg>
-<var>${path}</var>
-<arg>${SUITE SOURCE}</arg>
-<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
-<status status="PASS" start="2025-04-05T23:08:19.197610" elapsed="0.000000"/>
-</kw>
-<kw name="Split String From Right" owner="String">
-<msg time="2025-04-05T23:08:19.197610" level="INFO">${filename} = ['C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4', 'Self_Heal.robot']</msg>
-<var>${filename}</var>
-<arg>${path}</arg>
-<arg>\\</arg>
-<arg>1</arg>
-<doc>Splits the ``string`` using ``separator`` starting from right.</doc>
-<status status="PASS" start="2025-04-05T23:08:19.197610" elapsed="0.000000"/>
+<status status="PASS" start="2025-04-14T00:08:04.390890" elapsed="0.046500"/>
 </kw>
 <return>
-<value>${filename[1]}</value>
-<status status="PASS" start="2025-04-05T23:08:19.197610" elapsed="0.000000"/>
+<value>${text}</value>
+<status status="PASS" start="2025-04-14T00:08:04.437390" elapsed="0.000000"/>
 </return>
-<msg time="2025-04-05T23:08:19.197610" level="INFO">${current_Suite} = Self_Heal.robot</msg>
-<var>${current_Suite}</var>
-<status status="PASS" start="2025-04-05T23:08:19.197610" elapsed="0.000000"/>
+<msg time="2025-04-14T00:08:04.437390" level="INFO">${Section_deatils} = 🔥 Admissions Open for 2025-26
+Last Date to Apply: July 15, 2025
+Location: BITS Pilani, All Campuses
+Apply Now</msg>
+<var>${Section_deatils}</var>
+<arg>${Section_Xpath}</arg>
+<status status="PASS" start="2025-04-14T00:08:04.390890" elapsed="0.046500"/>
 </kw>
-<kw name="Run Process" owner="Process">
-<msg time="2025-04-05T23:08:19.197610" level="INFO">Starting process:
-robot Self_Heal.robot</msg>
-<msg time="2025-04-05T23:08:19.208943" level="INFO">Waiting for process to complete.</msg>
-<msg time="2025-04-05T23:09:05.299613" level="INFO">Process completed.</msg>
-<arg>robot</arg>
-<arg>${current_Suite}</arg>
-<doc>Runs a process and waits for it to complete.</doc>
-<status status="PASS" start="2025-04-05T23:08:19.197610" elapsed="46.102003"/>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Split String" owner="String">
+<msg time="2025-04-14T00:08:04.438390" level="INFO">${string_list} = ['🔥 Admissions Open for 2025-26', 'Last Date to Apply: July 15, 2025', 'Location: BITS Pilani, All Campuses', 'Apply Now']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-04-14T00:08:04.438390" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-04-05T23:08:10.046034" elapsed="55.253579"/>
-</branch>
-<branch type="ELSE">
-<kw name="Fail" owner="BuiltIn">
-<arg>Potienial Error Found</arg>
-<doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" start="2025-04-05T23:09:05.300614" elapsed="0.000000"/>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-04-14T00:08:04.438390" elapsed="0.000000"/>
+</return>
+<msg time="2025-04-14T00:08:04.438390" level="INFO">${Section_list} = ['🔥 Admissions Open for 2025-26', 'Last Date to Apply: July 15, 2025', 'Location: BITS Pilani, All Campuses', 'Apply Now']</msg>
+<var>${Section_list}</var>
+<arg>${Section_deatils}</arg>
+<status status="PASS" start="2025-04-14T00:08:04.438390" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-04-05T23:09:05.300614" elapsed="0.000000"/>
-</branch>
-<status status="PASS" start="2025-04-05T23:08:10.046034" elapsed="55.254580"/>
-</if>
-<status status="PASS" start="2025-04-05T23:08:09.978648" elapsed="55.321966"/>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Split String" owner="String">
+<msg time="2025-04-14T00:08:04.438390" level="INFO">${string_list} = ['🔥 Admissions Open for 2025-26', 'Last Date to Apply: July 15, 2025', 'Location: BITS Pilani, All Campuses', 'Apply Now']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-04-14T00:08:04.438390" elapsed="0.000000"/>
 </kw>
-<arg>'${TEST STATUS}' == 'FAIL'</arg>
-<arg>Failed Teardown</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-04-05T23:08:09.978648" elapsed="55.321966"/>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-04-14T00:08:04.438390" elapsed="0.000000"/>
+</return>
+<msg time="2025-04-14T00:08:04.438390" level="INFO">${validation_list} = ['🔥 Admissions Open for 2025-26', 'Last Date to Apply: July 15, 2025', 'Location: BITS Pilani, All Campuses', 'Apply Now']</msg>
+<var>${validation_list}</var>
+<arg>${Validate_Section}</arg>
+<status status="PASS" start="2025-04-14T00:08:04.438390" elapsed="0.000000"/>
 </kw>
-<arg>Run Keyword If</arg>
-<arg>'${TEST STATUS}' == 'PASS'</arg>
-<arg>Passed Teardown</arg>
-<arg>AND</arg>
-<arg>Run Keyword If</arg>
-<arg>'${TEST STATUS}' == 'FAIL'</arg>
-<arg>Failed Teardown</arg>
-<doc>Executes all the given keywords in a sequence.</doc>
-<status status="PASS" start="2025-04-05T23:08:09.978648" elapsed="55.321966"/>
+<kw name="Lists Should Be Equal" owner="Collections">
+<arg>${Section_list}</arg>
+<arg>${validation_list}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2025-04-14T00:08:04.438390" elapsed="0.003070"/>
 </kw>
-<status status="FAIL" start="2025-04-05T23:08:01.706359" elapsed="63.594255">Element with locator '//p[@id='placement_id']' not found.</status>
+<arg>${admission_Deatils_Xpath}</arg>
+<arg>🔥 Admissions Open for 2025-26\nLast Date to Apply: July 15, 2025\nLocation: BITS Pilani, All Campuses\nApply Now</arg>
+<status status="PASS" start="2025-04-14T00:08:04.390890" elapsed="0.050570"/>
+</kw>
+<kw name="Validate Sections" owner="Bits_Site_keyword">
+<kw name="Get text and Return" owner="Bits_Site_keyword">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-14T00:08:04.474080" level="INFO">${text} = 🎓 BITS Pilani Ranked Among Top 10 Universities in India!
+Ranked #7 in NIRF 2025 Rankings
+Recognized as a Top Global Institute for Engineering &amp; Science</msg>
+<var>${text}</var>
+<arg>${display_field_Xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-14T00:08:04.444632" elapsed="0.029448"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-04-14T00:08:04.475080" elapsed="0.000000"/>
+</return>
+<msg time="2025-04-14T00:08:04.475080" level="INFO">${Section_deatils} = 🎓 BITS Pilani Ranked Among Top 10 Universities in India!
+Ranked #7 in NIRF 2025 Rankings
+Recognized as a Top Global Institute for Engineering &amp; Science</msg>
+<var>${Section_deatils}</var>
+<arg>${Section_Xpath}</arg>
+<status status="PASS" start="2025-04-14T00:08:04.443631" elapsed="0.031449"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Split String" owner="String">
+<msg time="2025-04-14T00:08:04.477078" level="INFO">${string_list} = ['🎓 BITS Pilani Ranked Among Top 10 Universities in India!', 'Ranked #7 in NIRF 2025 Rankings', 'Recognized as a Top Global Institute for Engineering &amp; Science']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-04-14T00:08:04.476079" elapsed="0.000999"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-04-14T00:08:04.477078" elapsed="0.000000"/>
+</return>
+<msg time="2025-04-14T00:08:04.477078" level="INFO">${Section_list} = ['🎓 BITS Pilani Ranked Among Top 10 Universities in India!', 'Ranked #7 in NIRF 2025 Rankings', 'Recognized as a Top Global Institute for Engineering &amp; Science']</msg>
+<var>${Section_list}</var>
+<arg>${Section_deatils}</arg>
+<status status="PASS" start="2025-04-14T00:08:04.476079" elapsed="0.000999"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Split String" owner="String">
+<msg time="2025-04-14T00:08:04.477078" level="INFO">${string_list} = ['🎓 BITS Pilani Ranked Among Top 10 Universities in India!', 'Ranked #7 in NIRF 2025 Rankings', 'Recognized as a Top Global Institute for Engineering &amp; Science']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-04-14T00:08:04.477078" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-04-14T00:08:04.477078" elapsed="0.000000"/>
+</return>
+<msg time="2025-04-14T00:08:04.479582" level="INFO">${validation_list} = ['🎓 BITS Pilani Ranked Among Top 10 Universities in India!', 'Ranked #7 in NIRF 2025 Rankings', 'Recognized as a Top Global Institute for Engineering &amp; Science']</msg>
+<var>${validation_list}</var>
+<arg>${Validate_Section}</arg>
+<status status="PASS" start="2025-04-14T00:08:04.477078" elapsed="0.002504"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<arg>${Section_list}</arg>
+<arg>${validation_list}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2025-04-14T00:08:04.479582" elapsed="0.000000"/>
+</kw>
+<arg>${Rank_details_Xpath}</arg>
+<arg>🎓 BITS Pilani Ranked Among Top 10 Universities in India!\nRanked #7 in NIRF 2025 Rankings\nRecognized as a Top Global Institute for Engineering &amp; Science</arg>
+<status status="PASS" start="2025-04-14T00:08:04.442462" elapsed="0.038308"/>
+</kw>
+<kw name="Validate Sections" owner="Bits_Site_keyword">
+<kw name="Get text and Return" owner="Bits_Site_keyword">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-14T00:08:04.538988" level="INFO">${text} = 📄 Placement Report 2024
+Highest Package: ₹1.5 Cr PA
+Average Package: ₹28 LPA
+Top Recruiters: Google, Microsoft, Amazon, Tesla</msg>
+<var>${text}</var>
+<arg>${display_field_Xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-14T00:08:04.483907" elapsed="0.056084"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-04-14T00:08:04.539991" elapsed="0.000000"/>
+</return>
+<msg time="2025-04-14T00:08:04.540608" level="INFO">${Section_deatils} = 📄 Placement Report 2024
+Highest Package: ₹1.5 Cr PA
+Average Package: ₹28 LPA
+Top Recruiters: Google, Microsoft, Amazon, Tesla</msg>
+<var>${Section_deatils}</var>
+<arg>${Section_Xpath}</arg>
+<status status="PASS" start="2025-04-14T00:08:04.481816" elapsed="0.058792"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Split String" owner="String">
+<msg time="2025-04-14T00:08:04.542622" level="INFO">${string_list} = ['📄 Placement Report 2024', 'Highest Package: ₹1.5 Cr PA', 'Average Package: ₹28 LPA', 'Top Recruiters: Google, Microsoft, Amazon, Tesla']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-04-14T00:08:04.541609" elapsed="0.001013"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-04-14T00:08:04.542622" elapsed="0.000000"/>
+</return>
+<msg time="2025-04-14T00:08:04.544020" level="INFO">${Section_list} = ['📄 Placement Report 2024', 'Highest Package: ₹1.5 Cr PA', 'Average Package: ₹28 LPA', 'Top Recruiters: Google, Microsoft, Amazon, Tesla']</msg>
+<var>${Section_list}</var>
+<arg>${Section_deatils}</arg>
+<status status="PASS" start="2025-04-14T00:08:04.540608" elapsed="0.003412"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Split String" owner="String">
+<msg time="2025-04-14T00:08:04.545016" level="INFO">${string_list} = ['📄 Placement Report 2024', 'Highest Package: ₹1.5 Cr PA', 'Average Package: ₹28 LPA', 'Top Recruiters: Google, Microsoft, Amazon, Tesla']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-04-14T00:08:04.545016" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-04-14T00:08:04.545016" elapsed="0.000000"/>
+</return>
+<msg time="2025-04-14T00:08:04.545016" level="INFO">${validation_list} = ['📄 Placement Report 2024', 'Highest Package: ₹1.5 Cr PA', 'Average Package: ₹28 LPA', 'Top Recruiters: Google, Microsoft, Amazon, Tesla']</msg>
+<var>${validation_list}</var>
+<arg>${Validate_Section}</arg>
+<status status="PASS" start="2025-04-14T00:08:04.544020" elapsed="0.000996"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<arg>${Section_list}</arg>
+<arg>${validation_list}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2025-04-14T00:08:04.546256" elapsed="0.000000"/>
+</kw>
+<arg>${placemnt_details_Xpath}</arg>
+<arg>📄 Placement Report 2024\nHighest Package: ₹1.5 Cr PA\nAverage Package: ₹28 LPA\nTop Recruiters: Google, Microsoft, Amazon, Tesla</arg>
+<status status="PASS" start="2025-04-14T00:08:04.480770" elapsed="0.066488"/>
+</kw>
+<kw name="Validate Sections" owner="Bits_Site_keyword">
+<kw name="Get text and Return" owner="Bits_Site_keyword">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-14T00:08:04.579152" level="INFO">${text} = 📢 New Courses Introduced
+AI &amp; Machine Learning
+Cybersecurity &amp; Ethical Hacking
+Blockchain &amp; FinTech</msg>
+<var>${text}</var>
+<arg>${display_field_Xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-14T00:08:04.547258" elapsed="0.031894"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-04-14T00:08:04.579152" elapsed="0.001003"/>
+</return>
+<msg time="2025-04-14T00:08:04.580155" level="INFO">${Section_deatils} = 📢 New Courses Introduced
+AI &amp; Machine Learning
+Cybersecurity &amp; Ethical Hacking
+Blockchain &amp; FinTech</msg>
+<var>${Section_deatils}</var>
+<arg>${Section_Xpath}</arg>
+<status status="PASS" start="2025-04-14T00:08:04.547258" elapsed="0.032897"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Split String" owner="String">
+<msg time="2025-04-14T00:08:04.580155" level="INFO">${string_list} = ['📢 New Courses Introduced', 'AI &amp; Machine Learning', 'Cybersecurity &amp; Ethical Hacking', 'Blockchain &amp; FinTech']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-04-14T00:08:04.580155" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-04-14T00:08:04.580155" elapsed="0.000000"/>
+</return>
+<msg time="2025-04-14T00:08:04.580155" level="INFO">${Section_list} = ['📢 New Courses Introduced', 'AI &amp; Machine Learning', 'Cybersecurity &amp; Ethical Hacking', 'Blockchain &amp; FinTech']</msg>
+<var>${Section_list}</var>
+<arg>${Section_deatils}</arg>
+<status status="PASS" start="2025-04-14T00:08:04.580155" elapsed="0.000000"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Split String" owner="String">
+<msg time="2025-04-14T00:08:04.580155" level="INFO">${string_list} = ['📢 New Courses Introduced', 'AI &amp; Machine Learning', 'Cybersecurity &amp; Ethical Hacking', 'Blockchain &amp; FinTech']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-04-14T00:08:04.580155" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-04-14T00:08:04.580155" elapsed="0.000000"/>
+</return>
+<msg time="2025-04-14T00:08:04.580155" level="INFO">${validation_list} = ['📢 New Courses Introduced', 'AI &amp; Machine Learning', 'Cybersecurity &amp; Ethical Hacking', 'Blockchain &amp; FinTech']</msg>
+<var>${validation_list}</var>
+<arg>${Validate_Section}</arg>
+<status status="PASS" start="2025-04-14T00:08:04.580155" elapsed="0.000000"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<arg>${Section_list}</arg>
+<arg>${validation_list}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2025-04-14T00:08:04.580155" elapsed="0.000000"/>
+</kw>
+<arg>${course_details_Xpath}</arg>
+<arg>📢 New Courses Introduced\nAI &amp; Machine Learning\nCybersecurity &amp; Ethical Hacking\nBlockchain &amp; FinTech</arg>
+<status status="PASS" start="2025-04-14T00:08:04.547258" elapsed="0.032897"/>
+</kw>
+<kw name="Validate Sections" owner="Bits_Site_keyword">
+<kw name="Get text and Return" owner="Bits_Site_keyword">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-14T00:08:04.616081" level="INFO">${text} = 🏛️ Campus Expansion
+New Research Center Opening at BITS Pilani, Goa Campus
+Focus Areas: Quantum Computing, Space Tech &amp; AI</msg>
+<var>${text}</var>
+<arg>${display_field_Xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-14T00:08:04.580155" elapsed="0.035926"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-04-14T00:08:04.616081" elapsed="0.000000"/>
+</return>
+<msg time="2025-04-14T00:08:04.616081" level="INFO">${Section_deatils} = 🏛️ Campus Expansion
+New Research Center Opening at BITS Pilani, Goa Campus
+Focus Areas: Quantum Computing, Space Tech &amp; AI</msg>
+<var>${Section_deatils}</var>
+<arg>${Section_Xpath}</arg>
+<status status="PASS" start="2025-04-14T00:08:04.580155" elapsed="0.035926"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Split String" owner="String">
+<msg time="2025-04-14T00:08:04.618081" level="INFO">${string_list} = ['🏛️ Campus Expansion', 'New Research Center Opening at BITS Pilani, Goa Campus', 'Focus Areas: Quantum Computing, Space Tech &amp; AI']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-04-14T00:08:04.617083" elapsed="0.000998"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-04-14T00:08:04.618081" elapsed="0.000000"/>
+</return>
+<msg time="2025-04-14T00:08:04.618081" level="INFO">${Section_list} = ['🏛️ Campus Expansion', 'New Research Center Opening at BITS Pilani, Goa Campus', 'Focus Areas: Quantum Computing, Space Tech &amp; AI']</msg>
+<var>${Section_list}</var>
+<arg>${Section_deatils}</arg>
+<status status="PASS" start="2025-04-14T00:08:04.616081" elapsed="0.002000"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Split String" owner="String">
+<msg time="2025-04-14T00:08:04.619083" level="INFO">${string_list} = ['🏛️ Campus Expansion', 'New Research Center Opening at BITS Pilani, Goa Campus', 'Focus Areas: Quantum Computing, Space Tech &amp; AI']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-04-14T00:08:04.619083" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-04-14T00:08:04.619083" elapsed="0.000000"/>
+</return>
+<msg time="2025-04-14T00:08:04.619083" level="INFO">${validation_list} = ['🏛️ Campus Expansion', 'New Research Center Opening at BITS Pilani, Goa Campus', 'Focus Areas: Quantum Computing, Space Tech &amp; AI']</msg>
+<var>${validation_list}</var>
+<arg>${Validate_Section}</arg>
+<status status="PASS" start="2025-04-14T00:08:04.618081" elapsed="0.001002"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<arg>${Section_list}</arg>
+<arg>${validation_list}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2025-04-14T00:08:04.619083" elapsed="0.001135"/>
+</kw>
+<arg>${campus_details_xpath}</arg>
+<arg>🏛️ Campus Expansion\nNew Research Center Opening at BITS Pilani, Goa Campus\nFocus Areas: Quantum Computing, Space Tech &amp; AI</arg>
+<status status="PASS" start="2025-04-14T00:08:04.580155" elapsed="0.040063"/>
+</kw>
+<status status="PASS" start="2025-04-14T00:08:04.120899" elapsed="0.500319"/>
+</kw>
+<status status="PASS" start="2025-04-14T00:08:01.145323" elapsed="3.475895"/>
 </test>
-<status status="FAIL" start="2025-04-05T23:07:30.843031" elapsed="94.460896"/>
+<status status="PASS" start="2025-04-14T00:07:47.431658" elapsed="17.192655"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Self Heal" id="s1" pass="0" fail="1" skip="0">Self Heal</stat>
+<stat name="Self Heal" id="s1" pass="1" fail="0" skip="0">Self Heal</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-04-05T23:07:31.338955" level="WARN">Error in file 'C:\Users\Microsoft\Desktop\Bits\SEM4\Self_Heaaling_Moniker.robot' on line 87: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-04-05T23:07:59.676904" level="WARN">From C:\Users\Microsoft\AppData\Local\Programs\Python\Python311\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
-</msg>
-<msg time="2025-04-05T23:08:02.603350" level="WARN">The chromedriver version (133.0.6943.53) detected in PATH at C:\Driver\chromedriver.exe might not be compatible with the detected chrome version (134.0.6998.178); currently, chromedriver 134.0.6998.165 is recommended for chrome 134.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg time="2025-04-14T00:08:01.824336" level="WARN">The chromedriver version (133.0.6943.53) detected in PATH at C:\Driver\chromedriver.exe might not be compatible with the detected chrome version (134.0.6998.178); currently, chromedriver 134.0.6998.165 is recommended for chrome 134.*, so it is advised to delete the driver in PATH and retry</msg>
 </errors>
 </robot>
