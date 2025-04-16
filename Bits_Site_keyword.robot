@@ -80,6 +80,7 @@ Validate Important Details
     Validate Sections     ${placemnt_details_Xpath}    📄 Placement Report 2024\nHighest Package: ₹1.5 Cr PA\nAverage Package: ₹28 LPA\nTop Recruiters: Google, Microsoft, Amazon, Tesla
     Validate Sections     ${course_details_Xpath}    📢 New Courses Introduced\nAI & Machine Learning\nCybersecurity & Ethical Hacking\nBlockchain & FinTech
     Validate Sections     ${campus_details_xpath}     🏛️ Campus Expansion\nNew Research Center Opening at BITS Pilani, Goa Campus\nFocus Areas: Quantum Computing, Space Tech & AI
+    Validate Sections     ${upcoming_details_xpath}    🎉 Upcoming Events\nBITS Tech Fest 2025 – August 10-12, 2025\nGuest Speaker: Sundar Pichai (CEO, Google)\nHackathon with ₹10L Prize Pool!   
 
 Validate Sections   
     [Arguments]    ${Section_Xpath}    ${Validate_Section}
