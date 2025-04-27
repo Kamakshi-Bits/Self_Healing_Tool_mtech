@@ -4,10 +4,12 @@ Library    Self_Heaaling_py.py
 Library    String
 Library    Process
 Library    DateTime
+Library    BuiltIn
 
 *** Keywords ***
 Passed Teardown
     Copy Files   ${CURDIR}\\Current_logs${/}*    ${CURDIR}\\Passed_Logs
+    SeleniumLibrary.Close Browser
 
 Save Current Run Web Source
     ${Page_title}    SeleniumLibrary.Get Title
@@ -20,18 +22,20 @@ Failed Teardown
     IF  '${Is_self_heal_Applicable}'=='True'
         log  ${TEST MESSAGE}    
         ${Page_title}    SeleniumLibrary.Get Title
-        Get New Xpath and Update    ${Page_title}   ${TEST MESSAGE}
+        ${Current_Xpath}    ${Desired_Xpath}     Get New Xpath and Update    ${Page_title}   ${TEST MESSAGE}
         SeleniumLibrary.Close Browser
-        log to console  Re-Running Test Suite......
-        ${timestamp}=    Get Time    result_format=timestamp
+        log to console  Re-Running Test Case...: Updated Xpath ${Current_Xpath} to  ${Desired_Xpath}
+        ${timestamp}=    	Get Current Date   result_format=%Y_%m_%d_%H_%M_%S
         ${log_folder}=   Set Variable    Re_Run_logs/${timestamp}/${TEST_NAME}
         Create Directory    ${log_folder}
         ${current_Suite}   Get Current Running File
         ${result}=    Run Process  robot    --test    ${TEST_NAME}    --outputdir    ${log_folder}    ${current_Suite}    shell=True
         Log    ${result.stdout} 
-        ELSE
+        Run Keyword If    ${result.rc} == 0    Pass Execution    Test case Passed Check Re-Run Logs....
+        ...    ELSE    Log    Potienial Error Found After Re-Run
+    ELSE
             FAIL    Potienial Error Found
-        END
+    END
 
 Get New Xpath and Update
     [Arguments]  ${File_Name}   ${TEST MESSAGE}
@@ -49,6 +53,7 @@ Get New Xpath and Update
         ${Current_Xpath}=  Get Regexp Matches  ${TEST MESSAGE}    (//.*?])
         find_and_replace_text    ${CURDIR}    ${Current_Xpath[0]}     ${Desired_Xpath}
     END
+    RETURN    ${Current_Xpath}    ${Desired_Xpath}
 
 Get Desired Change Path
     [Arguments]     ${Line}    ${File_Name}   ${Count}=0

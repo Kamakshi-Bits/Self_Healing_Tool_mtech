@@ -1,0 +1,88 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details - BITS Pilani</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="hero">
+	<img src="C:\Users\Microsoft\Desktop\Bits\Website\img\logo.png" alt="BITS Pilani Logo" class="logo">
+        <h1>Student Details</h1>
+		<nav class="navbar">
+        <ul>
+            <li><a href="C:\Users\Microsoft\Desktop\Bits\Website\index.html" id="home">Home</a></li>
+            <li><a href="C:\Users\Microsoft\Desktop\Bits\Website\student-form.html" id="Form">Student Form</a></li>
+            <li><a href="C:\Users\Microsoft\Desktop\Bits\Website\student-details.html" id="details">Student Details</a></li>
+            <li><a href="C:\Users\Microsoft\Desktop\Bits\Website\updates.html" id="updates">Important Updates</a></li>
+            <li><a href="C:\Users\Microsoft\Desktop\Bits\Website\courses.html" id="courses">Courses</a></li>
+			<li><a href="C:\Users\Microsoft\Desktop\Bits\Website\contact.html" id="about">Contact Us</a></li>
+        </ul>
+		</nav>
+    </header>
+    <main>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+		<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<table class="student-table">
+            <tbody><tr>
+                <th>Student ID:</th>
+                <td id="Display-student-id"><span id="displaystudentid">235mt57654</span></td>
+            </tr>
+			<tr>
+                <th>Name:</th>
+                <td id="Display-Name"><span id="displayFullName">Kamakshi</span></td>
+            </tr>
+			<tr>
+                <th>Email:</th>
+                <td id="Display-Name"><span id="displayEmail">2023mt932170@gmail.com</span></td>
+            </tr>
+			<tr>
+                <th>Course:</th>
+                <td id="Display-Department"><span id="displayCourse">Computer Science</span></td>
+            </tr>
+			<tr>
+                <th>Date of Birth:</th>
+                <td id="Display-Dob"><span id="displaydob">1997-07-02</span></td>
+            </tr>
+			<tr>
+                <th>Gender:</th>
+                <td id="Display-Gender"><span id="displaygender">female</span></td>
+            </tr>
+			<tr>
+                <th>Phone:</th>
+                <td id="Display-Phone"><span id="displayphone">9811286701</span></td>
+            </tr>
+			<tr>
+                <th>Hobbies:</th>
+                <td id="Display-Hobbies"><span id="displayHobbies">sports, music</span></td>
+            </tr>
+		</tbody></table>
+    </main>
+    <script>
+        document.getElementById("displayFullName").textContent = localStorage.getItem("fullName") || "Not Provided";
+        document.getElementById("displayEmail").textContent = localStorage.getItem("email") || "Not Provided";
+        document.getElementById("displayCourse").textContent = localStorage.getItem("Course") || "Not Provided";
+		document.getElementById("displaydob").textContent = localStorage.getItem("dob") || "Not Provided";
+		document.getElementById("displayphone").textContent = localStorage.getItem("phone") || "Not Provided";
+		document.getElementById("displaystudentid").textContent = localStorage.getItem("studentid") || "Not Provided";
+		document.getElementById("displaygender").textContent = localStorage.getItem("gender") || "Not Provided";
+	   document.getElementById("displayHobbies").innerText = localStorage.getItem("hobbies") || "Music, Reading";
+
+    </script>
+
+
+</body></html>

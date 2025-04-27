@@ -1,0 +1,84 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - BITS Pilani</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="hero">
+	<img src="C:\Users\Microsoft\Desktop\Bits\Website\img\logo.png" alt="BITS Pilani Logo" class="logo">
+        <h1>Available Courses</h1>
+		<nav class="navbar">
+        <ul>
+            <li><a href="C:\Users\Microsoft\Desktop\Bits\Website\index.html" id="home">Home</a></li>
+            <li><a href="C:\Users\Microsoft\Desktop\Bits\Website\student-form.html" id="Form">Student Form</a></li>
+            <li><a href="C:\Users\Microsoft\Desktop\Bits\Website\student-details.html" id="details">Student Details</a></li>
+            <li><a href="C:\Users\Microsoft\Desktop\Bits\Website\updates.html" id="updates">Important Updates</a></li>
+            <li><a href="C:\Users\Microsoft\Desktop\Bits\Website\courses.html" id="courses">Courses</a></li>
+			<li><a href="C:\Users\Microsoft\Desktop\Bits\Website\contact.html" id="about">Contact Us</a></li>
+        </ul>
+		</nav>
+    </header>
+    <main>
+		<br>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+        &lt;<div id="course_offer_id" class="updates-container">
+    <h2>📚 Courses Offered at BITS Pilani</h2>
+
+    <div id="cs_info_id" class="update-box">
+        <h3>💻 B.Tech in Computer Science &amp; Engineering</h3>
+        <p>Learn cutting-edge technologies like **AI, Machine Learning, Cloud Computing, and Cybersecurity**.</p>
+    </div>
+
+    <div id="ECE_info_id" class="update-box">
+        <h3>📡 B.Tech in Electronics &amp; Communication Engineering</h3>
+        <p>Specialize in **VLSI Design, Embedded Systems, and IoT** for a career in **semiconductors and telecommunications**.</p>
+    </div>
+
+    <div id="ME-info_id" class="update-box">
+        <h3>⚙️ B.Tech in Mechanical Engineering</h3>
+        <p>Master **robotics, automotive engineering, and product design** with industry-relevant projects.</p>
+    </div>
+
+    <div id="CE_info_id" class="update-box">
+        <h3>🏗️ B.Tech in Civil Engineering</h3>
+        <p>Gain expertise in **structural engineering, smart cities, and sustainable construction**.</p>
+    </div>
+
+    <div id="Qntum_info_id" class="update-box">
+        <h3>🔬 M.Sc. in Physics</h3>
+        <p>Deep dive into **Quantum Mechanics, Nanotechnology, and Astrophysics** with research-driven learning.</p>
+    </div>
+
+    <div id="DSA_info_id" class="update-box">
+        <h3>📊 M.Sc. in Data Science &amp; Analytics</h3>
+        <p>Specialize in **Big Data, Machine Learning, and Artificial Intelligence** with real-world applications.</p>
+    </div>
+
+    <div id="DBM_info_id1" class="update-box">
+        <h3>🖥️ MBA in Digital Business Management</h3>
+        <p>Learn **Digital Marketing, E-commerce, and AI-driven business strategies**.</p>
+    </div>
+
+    <div id="bio_info_id" class="update-box">
+        <h3>🧬 Ph.D. in Biotechnology</h3>
+        <p>Research in **Genomics, Bioinformatics, and Advanced Drug Development**.</p>
+    </div>
+</div>
+
+    </main>
+
+
+</body></html>

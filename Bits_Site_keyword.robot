@@ -27,6 +27,7 @@ Validate Home Page Details
     
 Validate Text On Home Page 
     [Arguments]    ${Validation_Path}  ${From_Validate_text}
+    Save Current Run Web Source 
     SeleniumLibrary.Scroll Element Into View 	 ${Validation_Path} 
     ${validate_Text}    SeleniumLibrary.Get Text 	 ${Validation_Path}
     Should Be Equal As Strings    ${validate_Text}    ${From_Validate_text}
@@ -34,6 +35,7 @@ Validate Text On Home Page
 
 Fill Student From
     Click Element 	 ${student_Form_Button}
+    Save Current Run Web Source 
     input text 	 ${Name_Xpath} 	 Kamakshi
     input text   ${DOB_Xpath}    02-07-1997
     Select from dropdown    ${gender_Xpath}    female
@@ -53,6 +55,7 @@ Select from dropdown
 
 Validate Form Details
     Click Element 	   ${student_detail_button} 
+    Save Current Run Web Source 
     ${Student_id}    Get text and Return   ${studentiddisplay_Xpath}
     should be Equal as Strings    ${Student_id}    235mt57654
     ${Student_name}    Get text and Return   ${studentfullnamedisplay_Xpath}
@@ -70,6 +73,7 @@ Validate Form Details
     
 Get text and Return
     [Arguments]    ${display_field_Xpath}
+    Save Current Run Web Source 
     ${text}    get text    ${display_field_Xpath}
     RETURN     ${text}
 
@@ -84,6 +88,7 @@ Validate Important Details
 
 Validate Sections   
     [Arguments]    ${Section_Xpath}    ${Validate_Section}
+    Save Current Run Web Source 
     ${Section_deatils}    Get text and Return    ${Section_Xpath}
     ${Section_list}=    Get your string to List    ${Section_deatils} 
     ${validation_list}    Get your string to List    ${Validate_Section}
@@ -91,5 +96,20 @@ Validate Sections
 
 Get your string to List
     [Arguments]     ${string}
+    Save Current Run Web Source 
     ${string_list}=    Split String    ${string}    \n
     RETURN   ${string_list}
+    
+Validate Course Deatils
+    Click Element 	 ${course_button}
+    Save Current Run Web Source 
+    Validate Sections    ${cs_info_xpath}    💻 B.Tech in Computer Science & Engineering\nLearn cutting-edge technologies like **AI, Machine Learning, Cloud Computing, and Cybersecurity**.
+    Validate Sections    ${ECE_info_xpath}    📡 B.Tech in Electronics & Communication Engineering\nSpecialize in **VLSI Design, Embedded Systems, and IoT** for a career in **semiconductors and telecommunications**.
+    Validate Sections    ${ME_info_xpath}    ⚙️ B.Tech in Mechanical Engineering\nMaster **robotics, automotive engineering, and product design** with industry-relevant projects.
+    Validate Sections    ${CE_info_xpath}     🏗️ B.Tech in Civil Engineering\nGain expertise in **structural engineering, smart cities, and sustainable construction**.
+    Validate Sections    ${Qntum_info_xpath}     🔬 M.Sc. in Physics\nDeep dive into **Quantum Mechanics, Nanotechnology, and Astrophysics** with research-driven learning.
+    Validate Sections    ${DSA_info_xpath}     📊 M.Sc. in Data Science & Analytics\nSpecialize in **Big Data, Machine Learning, and Artificial Intelligence** with real-world applications.
+    Validate Sections    ${DBM_info_xpath}     🖥️ MBA in Digital Business Management\nLearn **Digital Marketing, E-commerce, and AI-driven business strategies**.
+    Validate Sections    ${bio_info_xpath}     🧬 Ph.D. in Biotechnology\nResearch in **Genomics, Bioinformatics, and Advanced Drug Development**.
+
+   

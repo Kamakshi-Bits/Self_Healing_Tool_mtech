@@ -1,0 +1,85 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updates - BITS Pilani</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="hero">
+	<img src="C:\Users\Microsoft\Desktop\Bits\Website\img\logo.png" alt="BITS Pilani Logo" class="logo">
+        <h1>Latest Updates</h1>
+		<nav class="navbar">
+        <ul>
+            <li><a href="C:\Users\Microsoft\Desktop\Bits\Website\index.html" id="home">Home</a></li>
+            <li><a href="C:\Users\Microsoft\Desktop\Bits\Website\student-form.html" id="Form">Student Form</a></li>
+            <li><a href="C:\Users\Microsoft\Desktop\Bits\Website\student-details.html" id="details">Student Details</a></li>
+            <li><a href="C:\Users\Microsoft\Desktop\Bits\Website\updates.html" id="updates">Important Updates</a></li>
+            <li><a href="C:\Users\Microsoft\Desktop\Bits\Website\courses.html" id="courses">Courses</a></li>
+			<li><a href="C:\Users\Microsoft\Desktop\Bits\Website\contact.html" id="about">Contact Us</a></li>
+        </ul>
+		</nav>
+    </header>
+    <main>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+        <div class="updates-container">
+    <h2>📢 <span class="highlight">Important Updates</span></h2>
+    
+    <div id="admissons_id" class="update-box">
+        <h3>🔥 Admissions Open for 2025-26</h3>
+        <p><b>Last Date to Apply:</b> <span class="highlight">July 15, 2025</span></p>
+        <p><b>Location:</b> BITS Pilani, All Campuses</p>
+        <p><a href="#">Apply Now</a></p>
+    </div>
+
+    <div id="rank_id" class="update-box">
+        <h3>🎓 BITS Pilani Ranked Among Top 10 Universities in India!</h3>
+        <p><b>Ranked #7 in NIRF 2025 Rankings</b></p>
+        <p><b>Recognized as a Top Global Institute for Engineering &amp; Science</b></p>
+    </div>
+
+    <div id="placement_id" class="update-box">
+        <h3>📄 Placement Report 2024</h3>
+        <p><b>Highest Package:</b> <span class="highlight">₹1.5 Cr PA</span></p>
+        <p><b>Average Package:</b> ₹28 LPA</p>
+        <p><b>Top Recruiters:</b> Google, Microsoft, Amazon, Tesla</p>
+    </div>
+
+    <div id="course_intro_id" class="update-box">
+        <h3>📢 New Courses Introduced</h3>
+        <ul>
+            <li><b>AI &amp; Machine Learning</b></li>
+            <li><b>Cybersecurity &amp; Ethical Hacking</b></li>
+            <li><b>Blockchain &amp; FinTech</b></li>
+        </ul>
+    </div>
+
+    <div id="campus_id" class="update-box">
+        <h3>🏛️ Campus Expansion</h3>
+        <p><b>New Research Center Opening at BITS Pilani, Goa Campus</b></p>
+        <p><b>Focus Areas:</b> Quantum Computing, Space Tech &amp; AI</p>
+    </div>
+
+    <div id="upcoming_id" class="update-box">
+        <h3>🎉 Upcoming Events</h3>
+        <p><b>BITS Tech Fest 2025 – August 10-12, 2025</b></p>
+        <p><b>Guest Speaker:</b> Sundar Pichai (CEO, Google)</p>
+        <p><b>Hackathon with ₹10L Prize Pool!</b></p>
+    </div>
+</div>
+
+    </main>
+
+
+</body></html>

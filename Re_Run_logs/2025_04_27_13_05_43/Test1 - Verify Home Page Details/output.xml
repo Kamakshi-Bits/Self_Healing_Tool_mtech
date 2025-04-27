@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.11.0 on win32)" generated="2025-04-27T13:05:44.440862" rpa="false" schemaversion="5">
+<suite id="s1" name="Self Heal" source="C:\Users\Microsoft\Desktop\Bits\SEM4\Self_Heal.robot">
+<kw name="Set Screenshot Directory" owner="SeleniumLibrary" type="SETUP">
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Screenshots</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" start="2025-04-27T13:05:57.263579" elapsed="0.000000"/>
+</kw>
+<test id="s1-t1" name="Test1 - Verify Home Page Details" line="11">
+<kw name="Open URL" owner="Bits_Site_keyword" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:05:57.279288" level="INFO">Opening browser 'Chrome' to base url 'file:///C:/Users/Microsoft/Desktop/Bits/Website/index.html'.</msg>
+<arg>${URL}</arg>
+<arg>${browser}</arg>
+<arg>options=add_experimental_option("detach",True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-27T13:05:57.279288" elapsed="2.472018"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-04-27T13:05:59.751306" elapsed="0.064091"/>
+</kw>
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<status status="PASS" start="2025-04-27T13:05:57.279288" elapsed="2.537198"/>
+</kw>
+<kw name="Validate Home Page Details" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:05:59.862266" level="INFO">${Page_title} = Home - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-04-27T13:05:59.818502" elapsed="0.043764"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:05:59.869756" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Home - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styl...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-04-27T13:05:59.862266" elapsed="0.007490"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-04-27T13:05:59.871813" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-04-27T13:05:59.869756" elapsed="0.002057"/>
+</kw>
+<status status="PASS" start="2025-04-27T13:05:59.817498" elapsed="0.055625"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:05:59.887898" level="INFO">${Page_title} = Home - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-04-27T13:05:59.879951" elapsed="0.007947"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:05:59.898382" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Home - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styl...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-04-27T13:05:59.887898" elapsed="0.010484"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-04-27T13:05:59.900432" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-04-27T13:05:59.899418" elapsed="0.002013"/>
+</kw>
+<status status="PASS" start="2025-04-27T13:05:59.878138" elapsed="0.023353"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-27T13:05:59.901491" elapsed="0.543706"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:00.528825" level="INFO">${validate_Text} = Birla Institute of Technology and Science (BITS Pilani) is a premier institute in India, excelling in education, research, and innovation since 1964.</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:06:00.445197" elapsed="0.084628"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-27T13:06:00.529825" elapsed="0.000000"/>
+</kw>
+<arg>${about_bits_info_xpath}</arg>
+<arg>${about_bits_text}</arg>
+<status status="PASS" start="2025-04-27T13:05:59.874358" elapsed="0.655467"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:00.547723" level="INFO">${Page_title} = Home - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-04-27T13:06:00.529825" elapsed="0.017898"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:00.557716" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Home - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styl...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-04-27T13:06:00.548725" elapsed="0.008991"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-04-27T13:06:00.558716" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-04-27T13:06:00.558716" elapsed="0.003337"/>
+</kw>
+<status status="PASS" start="2025-04-27T13:06:00.529825" elapsed="0.033224"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-27T13:06:00.563049" elapsed="0.319479"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:00.950792" level="INFO">${validate_Text} = ✅ Ranked among India’s top private universities</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:06:00.882528" elapsed="0.068264"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-27T13:06:00.950792" elapsed="0.000000"/>
+</kw>
+<arg>${Choose_Bits_reason1_xpath}</arg>
+<arg>${Choose_Bits_reason1}</arg>
+<status status="PASS" start="2025-04-27T13:06:00.529825" elapsed="0.420967"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:00.974508" level="INFO">${Page_title} = Home - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-04-27T13:06:00.950792" elapsed="0.023716"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:00.987620" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Home - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styl...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-04-27T13:06:00.974508" elapsed="0.013112"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-04-27T13:06:00.987620" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-04-27T13:06:00.987620" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-27T13:06:00.950792" elapsed="0.036828"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-27T13:06:00.987620" elapsed="0.360669"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:01.409812" level="INFO">${validate_Text} = ✅ Flexible academic structure with research opportunities</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:06:01.348289" elapsed="0.061523"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-27T13:06:01.409812" elapsed="0.000000"/>
+</kw>
+<arg>${Choose_Bits_reason2_xpath}</arg>
+<arg>${Choose_Bits_reason2}</arg>
+<status status="PASS" start="2025-04-27T13:06:00.950792" elapsed="0.459020"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:01.431935" level="INFO">${Page_title} = Home - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-04-27T13:06:01.409812" elapsed="0.022123"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:01.444335" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Home - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styl...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-04-27T13:06:01.431935" elapsed="0.012400"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-04-27T13:06:01.444335" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-04-27T13:06:01.444335" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-27T13:06:01.409812" elapsed="0.034523"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-27T13:06:01.444335" elapsed="0.368087"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:01.872137" level="INFO">${validate_Text} = ✅ Industry collaborations with Google, Microsoft, Tesla</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:06:01.812422" elapsed="0.059715"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-27T13:06:01.872137" elapsed="0.000000"/>
+</kw>
+<arg>${Choose_Bits_reason3_xpath}</arg>
+<arg>${Choose_Bits_reason3}</arg>
+<status status="PASS" start="2025-04-27T13:06:01.409812" elapsed="0.462325"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:01.894866" level="INFO">${Page_title} = Home - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-04-27T13:06:01.872137" elapsed="0.022729"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:01.907473" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Home - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styl...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-04-27T13:06:01.894866" elapsed="0.012607"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-04-27T13:06:01.907473" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-04-27T13:06:01.907473" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-27T13:06:01.872137" elapsed="0.035336"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-27T13:06:01.907473" elapsed="0.357680"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:02.325065" level="INFO">${validate_Text} = ✅ 50,000+ Global Alumni Network</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:06:02.265153" elapsed="0.059912"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-27T13:06:02.325065" elapsed="0.000000"/>
+</kw>
+<arg>${Choose_Bits_reason4_xpath}</arg>
+<arg>${Choose_Bits_reason4}</arg>
+<status status="PASS" start="2025-04-27T13:06:01.872137" elapsed="0.452928"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:02.351991" level="INFO">${Page_title} = Home - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-04-27T13:06:02.325065" elapsed="0.026926"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:02.365161" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Home - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styl...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-04-27T13:06:02.351991" elapsed="0.013170"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-04-27T13:06:02.365161" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-04-27T13:06:02.365161" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-27T13:06:02.325065" elapsed="0.040096"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-27T13:06:02.365161" elapsed="0.339676"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:02.734223" level="INFO">${validate_Text} = 📍 Pilani (Main Campus)</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:06:02.705886" elapsed="0.028337"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-27T13:06:02.735223" elapsed="0.001000"/>
+</kw>
+<arg>${campus1_xpath}</arg>
+<arg>${campus1_text}</arg>
+<status status="PASS" start="2025-04-27T13:06:02.325065" elapsed="0.411158"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:02.746207" level="INFO">${Page_title} = Home - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-04-27T13:06:02.738325" elapsed="0.007882"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:02.751778" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Home - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styl...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-04-27T13:06:02.746207" elapsed="0.005571"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-04-27T13:06:02.754418" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-04-27T13:06:02.752777" elapsed="0.001691"/>
+</kw>
+<status status="PASS" start="2025-04-27T13:06:02.737311" elapsed="0.017157"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-27T13:06:02.754468" elapsed="0.289393"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:03.066956" level="INFO">${validate_Text} = 📍 Goa Campus</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:06:03.043861" elapsed="0.023095"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-27T13:06:03.066956" elapsed="0.000964"/>
+</kw>
+<arg>${campus2_xpath}</arg>
+<arg>${campus2_text}</arg>
+<status status="PASS" start="2025-04-27T13:06:02.736223" elapsed="0.331697"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:03.076896" level="INFO">${Page_title} = Home - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-04-27T13:06:03.067920" elapsed="0.008976"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:03.081729" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Home - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styl...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-04-27T13:06:03.076896" elapsed="0.005840"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-04-27T13:06:03.084310" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-04-27T13:06:03.082736" elapsed="0.001574"/>
+</kw>
+<status status="PASS" start="2025-04-27T13:06:03.067920" elapsed="0.017003"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-27T13:06:03.084923" elapsed="0.289028"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:03.440653" level="INFO">${validate_Text} = 📍 Hyderabad Campus</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:06:03.374951" elapsed="0.065702"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-27T13:06:03.440653" elapsed="0.000000"/>
+</kw>
+<arg>${campus3_xpath}</arg>
+<arg>${campus3_text}</arg>
+<status status="PASS" start="2025-04-27T13:06:03.067920" elapsed="0.372733"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:03.465134" level="INFO">${Page_title} = Home - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-04-27T13:06:03.440653" elapsed="0.024481"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:03.479216" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Home - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styl...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-04-27T13:06:03.465134" elapsed="0.014082"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-04-27T13:06:03.479216" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-04-27T13:06:03.479216" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-27T13:06:03.440653" elapsed="0.038563"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-27T13:06:03.479216" elapsed="0.363027"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:03.905501" level="INFO">${validate_Text} = 📍 Dubai Campus</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:06:03.842243" elapsed="0.063258"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-27T13:06:03.905501" elapsed="0.000000"/>
+</kw>
+<arg>${campus4_xpath}</arg>
+<arg>${campus4_text}</arg>
+<status status="PASS" start="2025-04-27T13:06:03.440653" elapsed="0.464848"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:03.933561" level="INFO">${Page_title} = Home - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-04-27T13:06:03.905501" elapsed="0.028060"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:03.949938" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Home - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styl...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-04-27T13:06:03.933561" elapsed="0.016377"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-04-27T13:06:03.949938" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-04-27T13:06:03.949938" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-27T13:06:03.905501" elapsed="0.044437"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-27T13:06:03.949938" elapsed="0.357442"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:04.376913" level="INFO">${validate_Text} = BITS Pilani offers Undergraduate, Postgraduate, and Ph.D. programs in engineering, management, and research.</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:06:04.307380" elapsed="0.069533"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-27T13:06:04.376913" elapsed="0.000000"/>
+</kw>
+<arg>${academic_info_xpath}</arg>
+<arg>${academic_info_text}</arg>
+<status status="PASS" start="2025-04-27T13:06:03.905501" elapsed="0.471412"/>
+</kw>
+<kw name="Validate Text On Home Page" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:04.400379" level="INFO">${Page_title} = Home - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-04-27T13:06:04.376913" elapsed="0.023466"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:04.414028" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Home - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styl...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-04-27T13:06:04.400379" elapsed="0.013649"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-04-27T13:06:04.414028" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-04-27T13:06:04.414028" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-27T13:06:04.376913" elapsed="0.045250"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${Validation_Path}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-04-27T13:06:04.422834" elapsed="0.357593"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-27T13:06:04.850051" level="INFO">${validate_Text} = Our students are placed in top companies like Google, Microsoft, Amazon, Tesla, and many more.</msg>
+<var>${validate_Text}</var>
+<arg>${Validation_Path}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-27T13:06:04.780427" elapsed="0.069624"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${validate_Text}</arg>
+<arg>${From_Validate_text}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-04-27T13:06:04.850051" elapsed="0.000000"/>
+</kw>
+<arg>${placement_info_xpath}</arg>
+<arg>${placement_info_text}</arg>
+<status status="PASS" start="2025-04-27T13:06:04.376913" elapsed="0.473138"/>
+</kw>
+<status status="PASS" start="2025-04-27T13:05:59.816486" elapsed="5.033565"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Passed Teardown" owner="Self_Heaaling_Moniker">
+<kw name="Copy Files" owner="OperatingSystem">
+<msg time="2025-04-27T13:06:04.876068" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;' to '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Passed_Logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Passed_Logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<msg time="2025-04-27T13:06:04.896970" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Home - BITS Pilani.txt&lt;/a&gt;' to '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Passed_Logs\Home - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Passed_Logs\Home - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<msg time="2025-04-27T13:06:04.916226" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Student Details - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Student Details - BITS Pilani.txt&lt;/a&gt;' to '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Passed_Logs\Student Details - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Passed_Logs\Student Details - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<msg time="2025-04-27T13:06:04.932569" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Student Form - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Student Form - BITS Pilani.txt&lt;/a&gt;' to '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Passed_Logs\Student Form - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Passed_Logs\Student Form - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<msg time="2025-04-27T13:06:04.960481" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Updates - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Updates - BITS Pilani.txt&lt;/a&gt;' to '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Passed_Logs\Updates - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Passed_Logs\Updates - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs${/}*</arg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Passed_Logs</arg>
+<doc>Copies specified files to the target directory.</doc>
+<status status="PASS" start="2025-04-27T13:06:04.850051" elapsed="0.110430"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-27T13:06:04.964049" elapsed="3.899192"/>
+</kw>
+<status status="PASS" start="2025-04-27T13:06:04.850051" elapsed="4.013190"/>
+</kw>
+<arg>'${TEST STATUS}' == 'PASS'</arg>
+<arg>Passed Teardown</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-27T13:06:04.850051" elapsed="4.013190"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${TEST STATUS}' == 'FAIL'</arg>
+<arg>Failed Teardown</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-27T13:06:08.863241" elapsed="0.000000"/>
+</kw>
+<arg>Run Keyword If</arg>
+<arg>'${TEST STATUS}' == 'PASS'</arg>
+<arg>Passed Teardown</arg>
+<arg>AND</arg>
+<arg>Run Keyword If</arg>
+<arg>'${TEST STATUS}' == 'FAIL'</arg>
+<arg>Failed Teardown</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-04-27T13:06:04.850051" elapsed="4.013190"/>
+</kw>
+<status status="PASS" start="2025-04-27T13:05:57.263579" elapsed="11.599662"/>
+</test>
+<status status="PASS" start="2025-04-27T13:05:44.447517" elapsed="24.415724"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Self Heal" id="s1" pass="1" fail="0" skip="0">Self Heal</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
