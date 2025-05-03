@@ -8,7 +8,11 @@ Library    Collections
 *** Keywords ***
 Open URL
     [Arguments]    ${URL}    ${browser}
-    Open Browser   ${URL}     ${browser}   options=add_experimental_option("detach",True)
+    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    ${switches}=    Create List    enable-logging
+    Call Method    ${options}    add_experimental_option    excludeSwitches    ${switches}
+    Call Method    ${options}    add_experimental_option    detach    ${True}
+    Open Browser   ${URL}     ${browser}   options=${options}   
     SeleniumLibrary.Maximize Browser Window
 
 Validate Home Page Details

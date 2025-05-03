@@ -60,10 +60,10 @@
     <section class="why-bits">
         <h2>🌟 Why Choose BITS Pilani?</h2>
         <ul id="choose">
-            <li id="choose1" class="no">✅ Ranked among India’s top private universities</li>
-            <li id="choose2" class="no">✅ Flexible academic structure with research opportunities</li>
-            <li id="choose3" class="no">✅ Industry collaborations with Google, Microsoft, Tesla</li>
-            <li id="choose4" class="no">✅ 50,000+ Global Alumni Network</li>
+            <li id="ranktop" class="no">✅ Ranked among India’s top private universities</li>
+            <li id="flexi" class="no">✅ Flexible academic structure with research opportunities</li>
+            <li id="indus" class="no">✅ Industry collaborations with Google, Microsoft, Tesla</li>
+            <li id="global" class="no">✅ 50,000+ Global Alumni Network</li>
         </ul>
     </section>
 
@@ -71,23 +71,23 @@
     <section class="campuses">
         <h2>🌍 Our Campuses</h2>
         <div class="campus-container">
-            <div id="campus1" class="campus-card">📍 Pilani (Main Campus)</div>
-            <div id="campus2" class="campus-card">📍 Goa Campus</div>
-            <div id="campus3" class="campus-card">📍 Hyderabad Campus</div>
-            <div id="campus4" class="campus-card">📍 Dubai Campus</div>
+            <div id="pilani_main_cid" class="campus-card">📍 Pilani (Main Campus)</div>
+            <div id="goa_cid" class="campus-card">📍 Goa Campus</div>
+            <div id="fghhgrrgh" class="campus-card">📍 Hyderabad Campus</div>
+            <div id="dubai_cid" class="campus-card">📍 Dubai Campus</div>
         </div>
     </section>
 
     <!-- Academics Section -->
     <section class="academics">
         <h2>🎓 Academic Excellence</h2>
-        <p id="academics_id">BITS Pilani offers Undergraduate, Postgraduate, and Ph.D. programs in engineering, management, and research.</p>
+        <p id="academics_id1">BITS Pilani offers Undergraduate, Postgraduate, and Ph.D. programs in engineering, management, and research.</p>
     </section>
 
     <!-- Placements Section -->
     <section class="placements">
         <h2>🏆 Placements &amp; Careers</h2>
-        <p id="placement_id1">Our students are placed in top companies like Google, Microsoft, Amazon, Tesla, and many more.</p>
+        <p id="placement_id">Our students are placed in top companies like Google, Microsoft, Amazon, Tesla, and many more.</p>
     </section>
 	<br>
 	<br>

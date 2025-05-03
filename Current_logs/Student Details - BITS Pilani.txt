@@ -56,7 +56,7 @@
             </tr>
 			<tr>
                 <th>Date of Birth:</th>
-                <td id="Display-Dob"><span id="displaydob">1997-07-02</span></td>
+                <td id="Display-Dob"><span id="displaydob">1997-02-07</span></td>
             </tr>
 			<tr>
                 <th>Gender:</th>

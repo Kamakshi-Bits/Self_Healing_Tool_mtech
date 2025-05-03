@@ -1,0 +1,1573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.11.0 on win32)" generated="2025-05-03T18:30:05.561533" rpa="false" schemaversion="5">
+<suite id="s1" name="Self Heal" source="C:\Users\Microsoft\Desktop\Bits\SEM4\Self_Heal.robot">
+<kw name="Suite_Setup_Keyword" owner="Self_Heaaling_Moniker" type="SETUP">
+<kw name="Set Screenshot Directory" owner="SeleniumLibrary">
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Screenshots</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" start="2025-05-03T18:30:17.064004" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:17.062009" elapsed="0.001995"/>
+</kw>
+<test id="s1-t1" name="Test4 - Verify Course Details" line="29">
+<kw name="Run Keywords" owner="BuiltIn" type="SETUP">
+<kw name="Test_setup_keyword" owner="Self_Heaaling_Moniker">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-05-03T18:30:17.067009" level="INFO">${timestamp} = 2025_05_03_18_30_17</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y_%m_%d_%H_%M_%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-05-03T18:30:17.066008" elapsed="0.001001"/>
+</kw>
+<if>
+<branch type="IF" condition="'${IS_RERUN}' == 'False'">
+<kw name="Create File" owner="OperatingSystem">
+<arg>${validator_file}</arg>
+<arg>${timestamp}${\n}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="NOT RUN" start="2025-05-03T18:30:17.067009" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<var>${re_run_flag}</var>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" start="2025-05-03T18:30:17.067009" elapsed="0.000998"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${validator_file}</arg>
+<arg>${re_run_flag}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="NOT RUN" start="2025-05-03T18:30:17.068007" elapsed="0.000000"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<var>${console_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" start="2025-05-03T18:30:17.068007" elapsed="0.000000"/>
+</kw>
+<kw name="Append To File" owner="OperatingSystem">
+<arg>${validator_file}</arg>
+<arg>${console_list}${\n}</arg>
+<doc>Appends the given content to the specified file.</doc>
+<status status="NOT RUN" start="2025-05-03T18:30:17.068007" elapsed="0.000997"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<arg>${validator_file}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="NOT RUN" start="2025-05-03T18:30:17.069004" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-05-03T18:30:17.067009" elapsed="0.001995"/>
+</branch>
+<status status="PASS" start="2025-05-03T18:30:17.067009" elapsed="0.001995"/>
+</if>
+<status status="PASS" start="2025-05-03T18:30:17.066008" elapsed="0.002996"/>
+</kw>
+<kw name="Open URL" owner="Bits_Site_keyword">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-03T18:30:17.070011" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001A22391D850&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-03T18:30:17.070011" elapsed="0.000995"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-05-03T18:30:17.071006" level="INFO">${switches} = ['enable-logging']</msg>
+<var>${switches}</var>
+<arg>enable-logging</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-05-03T18:30:17.071006" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_experimental_option</arg>
+<arg>excludeSwitches</arg>
+<arg>${switches}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-05-03T18:30:17.071006" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_experimental_option</arg>
+<arg>detach</arg>
+<arg>${True}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-05-03T18:30:17.072014" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:17.073011" level="INFO">Opening browser 'Chrome' to base url 'file:///C:/Users/Microsoft/Desktop/Bits/Website/index.html'.</msg>
+<arg>${URL}</arg>
+<arg>${browser}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-03T18:30:17.072014" elapsed="2.681355"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-03T18:30:19.753369" elapsed="0.064012"/>
+</kw>
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<status status="PASS" start="2025-05-03T18:30:17.069004" elapsed="2.748377"/>
+</kw>
+<arg>Test_setup_keyword</arg>
+<arg>AND</arg>
+<arg>Open URL</arg>
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-05-03T18:30:17.065009" elapsed="2.754380"/>
+</kw>
+<kw name="Validate Course Deatils" owner="Bits_Site_keyword">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:19.829383" level="INFO">Clicking element '//a[@id='courses']'.</msg>
+<arg>${course_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-03T18:30:19.826398" elapsed="0.488967"/>
+</kw>
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.376375" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.324367" elapsed="0.052008"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.382364" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.377369" elapsed="0.004995"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.387380" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.383364" elapsed="0.004016"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.322366" elapsed="0.065014"/>
+</kw>
+<kw name="Validate Sections" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.431365" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.390367" elapsed="0.040998"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.437366" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.431365" elapsed="0.007002"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.439366" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.438367" elapsed="0.000999"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.389365" elapsed="0.051001"/>
+</kw>
+<kw name="Get text and Return" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.450364" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.441366" elapsed="0.008998"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.455364" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.451364" elapsed="0.004000"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.457363" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.456366" elapsed="0.000997"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.441366" elapsed="0.015997"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.508365" level="INFO">${text} = 💻 B.Tech in Computer Science &amp; Engineering
+Learn cutting-edge technologies like **AI, Machine Learning, Cloud Computing, and Cybersecurity**.</msg>
+<var>${text}</var>
+<arg>${display_field_Xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.457363" elapsed="0.051002"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-05-03T18:30:20.508365" elapsed="0.000999"/>
+</return>
+<msg time="2025-05-03T18:30:20.509364" level="INFO">${Section_deatils} = 💻 B.Tech in Computer Science &amp; Engineering
+Learn cutting-edge technologies like **AI, Machine Learning, Cloud Computing, and Cybersecurity**.</msg>
+<var>${Section_deatils}</var>
+<arg>${Section_Xpath}</arg>
+<status status="PASS" start="2025-05-03T18:30:20.440366" elapsed="0.068998"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.520364" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.511366" elapsed="0.008998"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.525367" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.521382" elapsed="0.003985"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.527369" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.526366" elapsed="0.001003"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.510365" elapsed="0.018001"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-05-03T18:30:20.529368" level="INFO">${string_list} = ['💻 B.Tech in Computer Science &amp; Engineering', 'Learn cutting-edge technologies like **AI, Machine Learning, Cloud Computing, and Cybersecurity**.']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.528366" elapsed="0.001002"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-05-03T18:30:20.529368" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:20.529368" level="INFO">${Section_list} = ['💻 B.Tech in Computer Science &amp; Engineering', 'Learn cutting-edge technologies like **AI, Machine Learning, Cloud Computing, and Cybersecurity**.']</msg>
+<var>${Section_list}</var>
+<arg>${Section_deatils}</arg>
+<status status="PASS" start="2025-05-03T18:30:20.509364" elapsed="0.020004"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.541374" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.531364" elapsed="0.010010"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.545364" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.541374" elapsed="0.004991"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.547366" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.546365" elapsed="0.001998"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.530367" elapsed="0.017996"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-05-03T18:30:20.549379" level="INFO">${string_list} = ['💻 B.Tech in Computer Science &amp; Engineering', 'Learn cutting-edge technologies like **AI, Machine Learning, Cloud Computing, and Cybersecurity**.']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.548363" elapsed="0.001016"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-05-03T18:30:20.549379" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:20.550366" level="INFO">${validation_list} = ['💻 B.Tech in Computer Science &amp; Engineering', 'Learn cutting-edge technologies like **AI, Machine Learning, Cloud Computing, and Cybersecurity**.']</msg>
+<var>${validation_list}</var>
+<arg>${Validate_Section}</arg>
+<status status="PASS" start="2025-05-03T18:30:20.530367" elapsed="0.019999"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<arg>${Section_list}</arg>
+<arg>${validation_list}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.550366" elapsed="0.000998"/>
+</kw>
+<arg>${cs_info_xpath}</arg>
+<arg>💻 B.Tech in Computer Science &amp; Engineering\nLearn cutting-edge technologies like **AI, Machine Learning, Cloud Computing, and Cybersecurity**.</arg>
+<status status="PASS" start="2025-05-03T18:30:20.388364" elapsed="0.163000"/>
+</kw>
+<kw name="Validate Sections" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.560365" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.554366" elapsed="0.005999"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.565367" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.560365" elapsed="0.005002"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.568365" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.565367" elapsed="0.004001"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.553372" elapsed="0.015996"/>
+</kw>
+<kw name="Get text and Return" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.578368" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.571367" elapsed="0.007001"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.583373" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.578368" elapsed="0.005005"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.585367" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.583373" elapsed="0.001994"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.570370" elapsed="0.015997"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.619364" level="INFO">${text} = 📡 B.Tech in Electronics &amp; Communication Engineering
+Specialize in **VLSI Design, Embedded Systems, and IoT** for a career in **semiconductors and telecommunications**.</msg>
+<var>${text}</var>
+<arg>${display_field_Xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.586367" elapsed="0.032997"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-05-03T18:30:20.620366" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:20.620366" level="INFO">${Section_deatils} = 📡 B.Tech in Electronics &amp; Communication Engineering
+Specialize in **VLSI Design, Embedded Systems, and IoT** for a career in **semiconductors and telecommunications**.</msg>
+<var>${Section_deatils}</var>
+<arg>${Section_Xpath}</arg>
+<status status="PASS" start="2025-05-03T18:30:20.569368" elapsed="0.050998"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.628365" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.622366" elapsed="0.005999"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.634366" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.629365" elapsed="0.005001"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.636367" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.634366" elapsed="0.002001"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.621366" elapsed="0.015001"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-05-03T18:30:20.637366" level="INFO">${string_list} = ['📡 B.Tech in Electronics &amp; Communication Engineering', 'Specialize in **VLSI Design, Embedded Systems, and IoT** for a career in **semiconductors and telecommunications**.']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.637366" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-05-03T18:30:20.637366" elapsed="0.001004"/>
+</return>
+<msg time="2025-05-03T18:30:20.638370" level="INFO">${Section_list} = ['📡 B.Tech in Electronics &amp; Communication Engineering', 'Specialize in **VLSI Design, Embedded Systems, and IoT** for a career in **semiconductors and telecommunications**.']</msg>
+<var>${Section_list}</var>
+<arg>${Section_deatils}</arg>
+<status status="PASS" start="2025-05-03T18:30:20.620366" elapsed="0.018004"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.646365" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.640368" elapsed="0.005997"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.652366" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.647364" elapsed="0.005002"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.654365" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.653365" elapsed="0.001000"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.639367" elapsed="0.016000"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-05-03T18:30:20.655367" level="INFO">${string_list} = ['📡 B.Tech in Electronics &amp; Communication Engineering', 'Specialize in **VLSI Design, Embedded Systems, and IoT** for a career in **semiconductors and telecommunications**.']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.655367" elapsed="0.000997"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-05-03T18:30:20.656364" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:20.656364" level="INFO">${validation_list} = ['📡 B.Tech in Electronics &amp; Communication Engineering', 'Specialize in **VLSI Design, Embedded Systems, and IoT** for a career in **semiconductors and telecommunications**.']</msg>
+<var>${validation_list}</var>
+<arg>${Validate_Section}</arg>
+<status status="PASS" start="2025-05-03T18:30:20.639367" elapsed="0.016997"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<arg>${Section_list}</arg>
+<arg>${validation_list}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.657367" elapsed="0.000000"/>
+</kw>
+<arg>${ECE_info_xpath}</arg>
+<arg>📡 B.Tech in Electronics &amp; Communication Engineering\nSpecialize in **VLSI Design, Embedded Systems, and IoT** for a career in **semiconductors and telecommunications**.</arg>
+<status status="PASS" start="2025-05-03T18:30:20.552364" elapsed="0.105003"/>
+</kw>
+<kw name="Validate Sections" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.666366" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.659367" elapsed="0.006999"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.672367" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.667368" elapsed="0.004999"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.674366" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.673366" elapsed="0.001000"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.659367" elapsed="0.015999"/>
+</kw>
+<kw name="Get text and Return" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.684365" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.677365" elapsed="0.007000"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.689366" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.684365" elapsed="0.005001"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.691364" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.690365" elapsed="0.000999"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.676364" elapsed="0.016003"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.722363" level="INFO">${text} = ⚙️ B.Tech in Mechanical Engineering
+Master **robotics, automotive engineering, and product design** with industry-relevant projects.</msg>
+<var>${text}</var>
+<arg>${display_field_Xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.692367" elapsed="0.029996"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-05-03T18:30:20.723363" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:20.723363" level="INFO">${Section_deatils} = ⚙️ B.Tech in Mechanical Engineering
+Master **robotics, automotive engineering, and product design** with industry-relevant projects.</msg>
+<var>${Section_deatils}</var>
+<arg>${Section_Xpath}</arg>
+<status status="PASS" start="2025-05-03T18:30:20.675366" elapsed="0.047997"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.731362" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.725364" elapsed="0.005998"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.736366" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.732363" elapsed="0.004003"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.737370" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.736366" elapsed="0.001004"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.724367" elapsed="0.013003"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-05-03T18:30:20.738364" level="INFO">${string_list} = ['⚙️ B.Tech in Mechanical Engineering', 'Master **robotics, automotive engineering, and product design** with industry-relevant projects.']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.738364" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-05-03T18:30:20.739365" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:20.739365" level="INFO">${Section_list} = ['⚙️ B.Tech in Mechanical Engineering', 'Master **robotics, automotive engineering, and product design** with industry-relevant projects.']</msg>
+<var>${Section_list}</var>
+<arg>${Section_deatils}</arg>
+<status status="PASS" start="2025-05-03T18:30:20.723363" elapsed="0.016002"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.746367" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.740366" elapsed="0.006001"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.750365" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.746367" elapsed="0.005003"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.752368" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.751370" elapsed="0.000998"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.740366" elapsed="0.012002"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-05-03T18:30:20.753364" level="INFO">${string_list} = ['⚙️ B.Tech in Mechanical Engineering', 'Master **robotics, automotive engineering, and product design** with industry-relevant projects.']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.753364" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-05-03T18:30:20.753364" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:20.754364" level="INFO">${validation_list} = ['⚙️ B.Tech in Mechanical Engineering', 'Master **robotics, automotive engineering, and product design** with industry-relevant projects.']</msg>
+<var>${validation_list}</var>
+<arg>${Validate_Section}</arg>
+<status status="PASS" start="2025-05-03T18:30:20.739365" elapsed="0.014999"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<arg>${Section_list}</arg>
+<arg>${validation_list}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.754364" elapsed="0.001002"/>
+</kw>
+<arg>${ME_info_xpath}</arg>
+<arg>⚙️ B.Tech in Mechanical Engineering\nMaster **robotics, automotive engineering, and product design** with industry-relevant projects.</arg>
+<status status="PASS" start="2025-05-03T18:30:20.658366" elapsed="0.097000"/>
+</kw>
+<kw name="Validate Sections" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.761364" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.756365" elapsed="0.004999"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.765366" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.762363" elapsed="0.003003"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.767367" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.766369" elapsed="0.000998"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.756365" elapsed="0.012004"/>
+</kw>
+<kw name="Get text and Return" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.774364" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.769365" elapsed="0.004999"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.779365" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.774364" elapsed="0.005001"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.781365" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.779365" elapsed="0.002000"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.768369" elapsed="0.012996"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.809364" level="INFO">${text} = 🏗️ B.Tech in Civil Engineering
+Gain expertise in **structural engineering, smart cities, and sustainable construction**.</msg>
+<var>${text}</var>
+<arg>${display_field_Xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.782365" elapsed="0.026999"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-05-03T18:30:20.809364" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:20.810365" level="INFO">${Section_deatils} = 🏗️ B.Tech in Civil Engineering
+Gain expertise in **structural engineering, smart cities, and sustainable construction**.</msg>
+<var>${Section_deatils}</var>
+<arg>${Section_Xpath}</arg>
+<status status="PASS" start="2025-05-03T18:30:20.768369" elapsed="0.041996"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.817364" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.811364" elapsed="0.006000"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.821367" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.817364" elapsed="0.004003"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.823365" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.822365" elapsed="0.001000"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.811364" elapsed="0.012001"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-05-03T18:30:20.824364" level="INFO">${string_list} = ['🏗️ B.Tech in Civil Engineering', 'Gain expertise in **structural engineering, smart cities, and sustainable construction**.']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.824364" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-05-03T18:30:20.824364" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:20.825372" level="INFO">${Section_list} = ['🏗️ B.Tech in Civil Engineering', 'Gain expertise in **structural engineering, smart cities, and sustainable construction**.']</msg>
+<var>${Section_list}</var>
+<arg>${Section_deatils}</arg>
+<status status="PASS" start="2025-05-03T18:30:20.810365" elapsed="0.015007"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.832364" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.826368" elapsed="0.005996"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.836362" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.833364" elapsed="0.002998"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.838363" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.837363" elapsed="0.002003"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.826368" elapsed="0.012998"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-05-03T18:30:20.839366" level="INFO">${string_list} = ['🏗️ B.Tech in Civil Engineering', 'Gain expertise in **structural engineering, smart cities, and sustainable construction**.']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.839366" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-05-03T18:30:20.840365" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:20.840365" level="INFO">${validation_list} = ['🏗️ B.Tech in Civil Engineering', 'Gain expertise in **structural engineering, smart cities, and sustainable construction**.']</msg>
+<var>${validation_list}</var>
+<arg>${Validate_Section}</arg>
+<status status="PASS" start="2025-05-03T18:30:20.825372" elapsed="0.014993"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<arg>${Section_list}</arg>
+<arg>${validation_list}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.840365" elapsed="0.000000"/>
+</kw>
+<arg>${CE_info_xpath}</arg>
+<arg>🏗️ B.Tech in Civil Engineering\nGain expertise in **structural engineering, smart cities, and sustainable construction**.</arg>
+<status status="PASS" start="2025-05-03T18:30:20.755366" elapsed="0.084999"/>
+</kw>
+<kw name="Validate Sections" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.847368" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.841363" elapsed="0.006005"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.851364" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.847368" elapsed="0.003996"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.853369" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.852368" elapsed="0.001001"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.841363" elapsed="0.012006"/>
+</kw>
+<kw name="Get text and Return" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.861363" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.855367" elapsed="0.005996"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.865364" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.861363" elapsed="0.004001"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.867364" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.866364" elapsed="0.001000"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.854365" elapsed="0.012999"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.895367" level="INFO">${text} = 🔬 M.Sc. in Physics
+Deep dive into **Quantum Mechanics, Nanotechnology, and Astrophysics** with research-driven learning.</msg>
+<var>${text}</var>
+<arg>${display_field_Xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.868369" elapsed="0.026998"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-05-03T18:30:20.895367" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:20.895367" level="INFO">${Section_deatils} = 🔬 M.Sc. in Physics
+Deep dive into **Quantum Mechanics, Nanotechnology, and Astrophysics** with research-driven learning.</msg>
+<var>${Section_deatils}</var>
+<arg>${Section_Xpath}</arg>
+<status status="PASS" start="2025-05-03T18:30:20.854365" elapsed="0.041002"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.901363" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.896368" elapsed="0.004995"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.905363" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.902365" elapsed="0.004000"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.907362" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.906365" elapsed="0.002002"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.896368" elapsed="0.011999"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-05-03T18:30:20.908367" level="INFO">${string_list} = ['🔬 M.Sc. in Physics', 'Deep dive into **Quantum Mechanics, Nanotechnology, and Astrophysics** with research-driven learning.']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.908367" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-05-03T18:30:20.909365" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:20.909365" level="INFO">${Section_list} = ['🔬 M.Sc. in Physics', 'Deep dive into **Quantum Mechanics, Nanotechnology, and Astrophysics** with research-driven learning.']</msg>
+<var>${Section_list}</var>
+<arg>${Section_deatils}</arg>
+<status status="PASS" start="2025-05-03T18:30:20.895367" elapsed="0.013998"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.915365" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.910364" elapsed="0.005001"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.919365" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.915365" elapsed="0.004000"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.921364" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.919365" elapsed="0.001999"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.909365" elapsed="0.011999"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-05-03T18:30:20.922366" level="INFO">${string_list} = ['🔬 M.Sc. in Physics', 'Deep dive into **Quantum Mechanics, Nanotechnology, and Astrophysics** with research-driven learning.']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.921364" elapsed="0.001002"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-05-03T18:30:20.922366" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:20.923365" level="INFO">${validation_list} = ['🔬 M.Sc. in Physics', 'Deep dive into **Quantum Mechanics, Nanotechnology, and Astrophysics** with research-driven learning.']</msg>
+<var>${validation_list}</var>
+<arg>${Validate_Section}</arg>
+<status status="PASS" start="2025-05-03T18:30:20.909365" elapsed="0.014000"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<arg>${Section_list}</arg>
+<arg>${validation_list}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.923365" elapsed="0.000998"/>
+</kw>
+<arg>${Qntum_info_xpath}</arg>
+<arg>🔬 M.Sc. in Physics\nDeep dive into **Quantum Mechanics, Nanotechnology, and Astrophysics** with research-driven learning.</arg>
+<status status="PASS" start="2025-05-03T18:30:20.841363" elapsed="0.083000"/>
+</kw>
+<kw name="Validate Sections" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.931366" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.925364" elapsed="0.007001"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.936366" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.932365" elapsed="0.004001"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.938364" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.937365" elapsed="0.000999"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.925364" elapsed="0.013000"/>
+</kw>
+<kw name="Get text and Return" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.946366" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.940369" elapsed="0.005997"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.951367" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.946366" elapsed="0.005001"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.953365" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.951367" elapsed="0.001998"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.939365" elapsed="0.014000"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.983363" level="INFO">${text} = 📊 M.Sc. in Data Science &amp; Analytics
+Specialize in **Big Data, Machine Learning, and Artificial Intelligence** with real-world applications.</msg>
+<var>${text}</var>
+<arg>${display_field_Xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.953365" elapsed="0.029998"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-05-03T18:30:20.983363" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:20.983363" level="INFO">${Section_deatils} = 📊 M.Sc. in Data Science &amp; Analytics
+Specialize in **Big Data, Machine Learning, and Artificial Intelligence** with real-world applications.</msg>
+<var>${Section_deatils}</var>
+<arg>${Section_Xpath}</arg>
+<status status="PASS" start="2025-05-03T18:30:20.939365" elapsed="0.043998"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.990362" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.985369" elapsed="0.005999"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:20.995366" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.991368" elapsed="0.003998"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:20.997364" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.996365" elapsed="0.002001"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:20.984371" elapsed="0.013995"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-05-03T18:30:20.998366" level="INFO">${string_list} = ['📊 M.Sc. in Data Science &amp; Analytics', 'Specialize in **Big Data, Machine Learning, and Artificial Intelligence** with real-world applications.']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-05-03T18:30:20.998366" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-05-03T18:30:20.999365" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:20.999365" level="INFO">${Section_list} = ['📊 M.Sc. in Data Science &amp; Analytics', 'Specialize in **Big Data, Machine Learning, and Artificial Intelligence** with real-world applications.']</msg>
+<var>${Section_list}</var>
+<arg>${Section_deatils}</arg>
+<status status="PASS" start="2025-05-03T18:30:20.984371" elapsed="0.014994"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.006367" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.000363" elapsed="0.006004"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.010364" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.006367" elapsed="0.004996"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:21.013367" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.011363" elapsed="0.002004"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:21.000363" elapsed="0.013004"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-05-03T18:30:21.014366" level="INFO">${string_list} = ['📊 M.Sc. in Data Science &amp; Analytics', 'Specialize in **Big Data, Machine Learning, and Artificial Intelligence** with real-world applications.']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.014366" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-05-03T18:30:21.014366" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:21.015364" level="INFO">${validation_list} = ['📊 M.Sc. in Data Science &amp; Analytics', 'Specialize in **Big Data, Machine Learning, and Artificial Intelligence** with real-world applications.']</msg>
+<var>${validation_list}</var>
+<arg>${Validate_Section}</arg>
+<status status="PASS" start="2025-05-03T18:30:20.999938" elapsed="0.015426"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<arg>${Section_list}</arg>
+<arg>${validation_list}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.015364" elapsed="0.000000"/>
+</kw>
+<arg>${DSA_info_xpath}</arg>
+<arg>📊 M.Sc. in Data Science &amp; Analytics\nSpecialize in **Big Data, Machine Learning, and Artificial Intelligence** with real-world applications.</arg>
+<status status="PASS" start="2025-05-03T18:30:20.924363" elapsed="0.091001"/>
+</kw>
+<kw name="Validate Sections" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.021364" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.016364" elapsed="0.005000"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.026367" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.022369" elapsed="0.003998"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:21.027364" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.026367" elapsed="0.001998"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:21.016364" elapsed="0.012001"/>
+</kw>
+<kw name="Get text and Return" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.035364" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.029365" elapsed="0.005999"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.039362" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.035364" elapsed="0.003998"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:21.041363" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.040363" elapsed="0.001000"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:21.029365" elapsed="0.012999"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.068364" level="INFO">${text} = 🖥️ MBA in Digital Business Management
+Learn **Digital Marketing, E-commerce, and AI-driven business strategies**.</msg>
+<var>${text}</var>
+<arg>${display_field_Xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.042364" elapsed="0.026000"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-05-03T18:30:21.068364" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:21.069368" level="INFO">${Section_deatils} = 🖥️ MBA in Digital Business Management
+Learn **Digital Marketing, E-commerce, and AI-driven business strategies**.</msg>
+<var>${Section_deatils}</var>
+<arg>${Section_Xpath}</arg>
+<status status="PASS" start="2025-05-03T18:30:21.028365" elapsed="0.041003"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.076365" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.070366" elapsed="0.005999"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.080364" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.076365" elapsed="0.003999"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:21.082361" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.081365" elapsed="0.000996"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:21.070366" elapsed="0.011995"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-05-03T18:30:21.083364" level="INFO">${string_list} = ['🖥️ MBA in Digital Business Management', 'Learn **Digital Marketing, E-commerce, and AI-driven business strategies**.']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.083364" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-05-03T18:30:21.083364" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:21.084365" level="INFO">${Section_list} = ['🖥️ MBA in Digital Business Management', 'Learn **Digital Marketing, E-commerce, and AI-driven business strategies**.']</msg>
+<var>${Section_list}</var>
+<arg>${Section_deatils}</arg>
+<status status="PASS" start="2025-05-03T18:30:21.069368" elapsed="0.014997"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.091363" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.085369" elapsed="0.005994"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.095363" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.091363" elapsed="0.004000"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:21.097364" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.096365" elapsed="0.000999"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:21.085369" elapsed="0.012995"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-05-03T18:30:21.098364" level="INFO">${string_list} = ['🖥️ MBA in Digital Business Management', 'Learn **Digital Marketing, E-commerce, and AI-driven business strategies**.']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.098364" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-05-03T18:30:21.098364" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:21.099369" level="INFO">${validation_list} = ['🖥️ MBA in Digital Business Management', 'Learn **Digital Marketing, E-commerce, and AI-driven business strategies**.']</msg>
+<var>${validation_list}</var>
+<arg>${Validate_Section}</arg>
+<status status="PASS" start="2025-05-03T18:30:21.084365" elapsed="0.015004"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<arg>${Section_list}</arg>
+<arg>${validation_list}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.099369" elapsed="0.000000"/>
+</kw>
+<arg>${DBM_info_xpath}</arg>
+<arg>🖥️ MBA in Digital Business Management\nLearn **Digital Marketing, E-commerce, and AI-driven business strategies**.</arg>
+<status status="PASS" start="2025-05-03T18:30:21.015364" elapsed="0.084005"/>
+</kw>
+<kw name="Validate Sections" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.106367" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.100369" elapsed="0.005998"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.114363" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.106367" elapsed="0.007996"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:21.116364" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.114363" elapsed="0.002001"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:21.100369" elapsed="0.015995"/>
+</kw>
+<kw name="Get text and Return" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.124364" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.118363" elapsed="0.006001"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.128365" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.124364" elapsed="0.004001"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:21.130365" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.129365" elapsed="0.002000"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:21.117364" elapsed="0.014001"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.158364" level="INFO">${text} = 🧬 Ph.D. in Biotechnology
+Research in **Genomics, Bioinformatics, and Advanced Drug Development**.</msg>
+<var>${text}</var>
+<arg>${display_field_Xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.131365" elapsed="0.026999"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-05-03T18:30:21.159366" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:21.159366" level="INFO">${Section_deatils} = 🧬 Ph.D. in Biotechnology
+Research in **Genomics, Bioinformatics, and Advanced Drug Development**.</msg>
+<var>${Section_deatils}</var>
+<arg>${Section_Xpath}</arg>
+<status status="PASS" start="2025-05-03T18:30:21.117364" elapsed="0.042002"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.167366" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.161367" elapsed="0.005999"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.171364" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.167366" elapsed="0.005002"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:21.173366" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.172368" elapsed="0.001996"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:21.160365" elapsed="0.013999"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-05-03T18:30:21.174364" level="INFO">${string_list} = ['🧬 Ph.D. in Biotechnology', 'Research in **Genomics, Bioinformatics, and Advanced Drug Development**.']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.174364" elapsed="0.001004"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-05-03T18:30:21.175368" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:21.175368" level="INFO">${Section_list} = ['🧬 Ph.D. in Biotechnology', 'Research in **Genomics, Bioinformatics, and Advanced Drug Development**.']</msg>
+<var>${Section_list}</var>
+<arg>${Section_deatils}</arg>
+<status status="PASS" start="2025-05-03T18:30:21.159366" elapsed="0.016002"/>
+</kw>
+<kw name="Get your string to List" owner="Bits_Site_keyword">
+<kw name="Save Current Run Web Source" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.181364" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.176367" elapsed="0.004997"/>
+</kw>
+<kw name="Get Source" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.186366" level="INFO">${Page_Source} = &lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Courses - BITS Pilani&lt;/title&gt;
+    &lt;link rel="stylesheet" href="s...</msg>
+<var>${Page_Source}</var>
+<doc>Returns the entire HTML source of the current page or frame.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.182366" elapsed="0.004000"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:21.188364" level="INFO" html="true">Created file '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>${Page_Source}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.186366" elapsed="0.001998"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:21.176367" elapsed="0.011997"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-05-03T18:30:21.189366" level="INFO">${string_list} = ['🧬 Ph.D. in Biotechnology', 'Research in **Genomics, Bioinformatics, and Advanced Drug Development**.']</msg>
+<var>${string_list}</var>
+<arg>${string}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.188364" elapsed="0.001002"/>
+</kw>
+<return>
+<value>${string_list}</value>
+<status status="PASS" start="2025-05-03T18:30:21.189366" elapsed="0.000000"/>
+</return>
+<msg time="2025-05-03T18:30:21.190367" level="INFO">${validation_list} = ['🧬 Ph.D. in Biotechnology', 'Research in **Genomics, Bioinformatics, and Advanced Drug Development**.']</msg>
+<var>${validation_list}</var>
+<arg>${Validate_Section}</arg>
+<status status="PASS" start="2025-05-03T18:30:21.175368" elapsed="0.014999"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<arg>${Section_list}</arg>
+<arg>${validation_list}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.190367" elapsed="0.000000"/>
+</kw>
+<arg>${bio_info_xpath}</arg>
+<arg>🧬 Ph.D. in Biotechnology\nResearch in **Genomics, Bioinformatics, and Advanced Drug Development**.</arg>
+<status status="PASS" start="2025-05-03T18:30:21.099369" elapsed="0.091996"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:19.822369" elapsed="1.368996"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Passed Teardown" owner="Self_Heaaling_Moniker">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2025-05-03T18:30:21.199363" level="INFO">${Page_title} = Courses - BITS Pilani</msg>
+<var>${Page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.193364" elapsed="0.005999"/>
+</kw>
+<kw name="Copy Files" owner="OperatingSystem">
+<msg time="2025-05-03T18:30:21.208365" level="INFO" html="true">Copied file from '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Current_logs\Courses - BITS Pilani.txt&lt;/a&gt;' to '&lt;a href="file://C:\Users\Microsoft\Desktop\Bits\SEM4\Passed_Logs\Courses - BITS Pilani.txt"&gt;C:\Users\Microsoft\Desktop\Bits\SEM4\Passed_Logs\Courses - BITS Pilani.txt&lt;/a&gt;'.</msg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Current_logs\\${Page_title}.txt</arg>
+<arg>C:\\Users\\Microsoft\\Desktop\\Bits\\SEM4\\Passed_Logs</arg>
+<doc>Copies specified files to the target directory.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.199363" elapsed="0.009002"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.208365" elapsed="3.114588"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:21.192364" elapsed="3.131630"/>
+</kw>
+<arg>'${TEST STATUS}' == 'PASS'</arg>
+<arg>Passed Teardown</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.192364" elapsed="3.131630"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${TEST STATUS}' == 'FAIL'</arg>
+<arg>Failed Teardown</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-03T18:30:24.325987" elapsed="0.001004"/>
+</kw>
+<arg>Run Keyword If</arg>
+<arg>'${TEST STATUS}' == 'PASS'</arg>
+<arg>Passed Teardown</arg>
+<arg>AND</arg>
+<arg>Run Keyword If</arg>
+<arg>'${TEST STATUS}' == 'FAIL'</arg>
+<arg>Failed Teardown</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-05-03T18:30:21.191365" elapsed="3.135626"/>
+</kw>
+<status status="PASS" start="2025-05-03T18:30:17.064004" elapsed="7.262987"/>
+</test>
+<status status="PASS" start="2025-05-03T18:30:05.565532" elapsed="18.764456"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Self Heal" id="s1" pass="1" fail="0" skip="0">Self Heal</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

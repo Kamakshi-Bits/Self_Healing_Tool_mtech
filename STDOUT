@@ -1,0 +1,15 @@
+==============================================================================
+Self Heal                                                                     
+==============================================================================
+Test4 - Verify Course Details                                         Updated Xpath Updated Xpath id="DBM_info_id" to //div[@id='DBM_info_id1' and @class='update-box']
+Updated Xpath id="bio_info_id" to //div[@id='bio_info_id1' and @class='update-box']
+Test case Passed Check Re-Run Logs....
+| FAIL |
+Element with locator '//div[@id='bio_info_id' and @class='update-box']' not found.
+------------------------------------------------------------------------------
+Self Heal                                                             | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  C:\Users\Microsoft\Desktop\Bits\SEM4\Re_Run_logs\2025_05_03_21_45_56\Test4 - Verify Course Details\output.xml
+Log:     C:\Users\Microsoft\Desktop\Bits\SEM4\Re_Run_logs\2025_05_03_21_45_56\Test4 - Verify Course Details\log.html
+Report:  C:\Users\Microsoft\Desktop\Bits\SEM4\Re_Run_logs\2025_05_03_21_45_56\Test4 - Verify Course Details\report.html
