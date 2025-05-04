@@ -67,12 +67,12 @@
         <p>Specialize in **Big Data, Machine Learning, and Artificial Intelligence** with real-world applications.</p>
     </div>
 
-    <div id="DBM_info_id1" class="update-box">
+    <div id="DBM_info_id" class="update-box">
         <h3>🖥️ MBA in Digital Business Management</h3>
         <p>Learn **Digital Marketing, E-commerce, and AI-driven business strategies**.</p>
     </div>
 
-    <div id="bio_info_id1" class="update-box">
+    <div id="bio_info_id" class="update-box">
         <h3>🧬 Ph.D. in Biotechnology</h3>
         <p>Research in **Genomics, Bioinformatics, and Advanced Drug Development**.</p>
     </div>

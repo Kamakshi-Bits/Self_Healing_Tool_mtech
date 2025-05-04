@@ -2,21 +2,23 @@
 Library    SeleniumLibrary
 Library    OperatingSystem
 Library    String
-Resource   Self_Heaaling_Moniker.robot 
+Resource   Self_Heaaling_Moniker.robot
 Library    Collections
 
 *** Keywords ***
 Open URL
+    [Documentation]    Opens the specified URL in the given browser with custom options.
     [Arguments]    ${URL}    ${browser}
     ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
     ${switches}=    Create List    enable-logging
     Call Method    ${options}    add_experimental_option    excludeSwitches    ${switches}
     Call Method    ${options}    add_experimental_option    detach    ${True}
-    Open Browser   ${URL}     ${browser}   options=${options}   
+    Open Browser   ${URL}     ${browser}   options=${options}
     SeleniumLibrary.Maximize Browser Window
 
 Validate Home Page Details
-    Save Current Run Web Source 
+    [Documentation]    Validates the text on the home page against expected values.
+    Save Current Run Web Source
     Validate Text On Home Page   ${about_bits_info_xpath}     ${about_bits_text}
     Validate Text On Home Page   ${Choose_Bits_reason1_xpath}     ${Choose_Bits_reason1}
     Validate Text On Home Page   ${Choose_Bits_reason2_xpath}     ${Choose_Bits_reason2}
@@ -29,17 +31,20 @@ Validate Home Page Details
     Validate Text On Home Page   ${academic_info_xpath}     ${academic_info_text}
     Validate Text On Home Page   ${placement_info_xpath}     ${placement_info_text}
     
-Validate Text On Home Page 
+Validate Text On Home Page
+    [Documentation]    Validates the text of a specific element on the home page 
+    ...     against the expected value.
     [Arguments]    ${Validation_Path}  ${From_Validate_text}
-    Save Current Run Web Source 
-    SeleniumLibrary.Scroll Element Into View 	 ${Validation_Path} 
+    Save Current Run Web Source
+    SeleniumLibrary.Scroll Element Into View    ${Validation_Path}
     ${validate_Text}    SeleniumLibrary.Get Text 	 ${Validation_Path}
     Should Be Equal As Strings    ${validate_Text}    ${From_Validate_text}
 
 
 Fill Student From
+    [Documentation]    Fills the student form with provided details and validates the form submission.
     Click Element 	 ${student_Form_Button}
-    Save Current Run Web Source 
+    Save Current Run Web Source
     input text 	 ${Name_Xpath} 	 Kamakshi
     input text   ${DOB_Xpath}    02-07-1997
     Select from dropdown    ${gender_Xpath}    female
@@ -54,10 +59,12 @@ Fill Student From
     Handle Alert    action=ACCEPT
 
 Select from dropdown
+    [Documentation]    Selects an option from a dropdown list based on the provided XPath and value.
     [Arguments]    ${dropdown_Xpath}    ${Select_from_dropdown}
     Select From List By Value   ${dropdown_Xpath}    ${Select_from_dropdown}
 
 Validate Form Details
+    [Documentation]    Validates the details of the student form submission.
     Click Element 	   ${student_detail_button} 
     Save Current Run Web Source 
     ${Student_id}    Get text and Return   ${studentiddisplay_Xpath}
@@ -76,12 +83,14 @@ Validate Form Details
     should be Equal as Strings    ${Student_Hoobby}    sports, music
     
 Get text and Return
+    [Documentation]    Retrieves the text from a specified element and returns it.
     [Arguments]    ${display_field_Xpath}
     Save Current Run Web Source 
     ${text}    get text    ${display_field_Xpath}
     RETURN     ${text}
 
 Validate Important Details
+    [Documentation]    Validates the important details on the page.
     Click Element 	 ${important_Updates_button}
     Validate Sections    ${admission_Deatils_Xpath}    🔥 Admissions Open for 2025-26\nLast Date to Apply: July 15, 2025\nLocation: BITS Pilani, All Campuses\nApply Now
     Validate Sections     ${Rank_details_Xpath}      🎓 BITS Pilani Ranked Among Top 10 Universities in India!\nRanked #7 in NIRF 2025 Rankings\nRecognized as a Top Global Institute for Engineering & Science
@@ -90,7 +99,8 @@ Validate Important Details
     Validate Sections     ${campus_details_xpath}     🏛️ Campus Expansion\nNew Research Center Opening at BITS Pilani, Goa Campus\nFocus Areas: Quantum Computing, Space Tech & AI
     Validate Sections     ${upcoming_details_xpath}    🎉 Upcoming Events\nBITS Tech Fest 2025 – August 10-12, 2025\nGuest Speaker: Sundar Pichai (CEO, Google)\nHackathon with ₹10L Prize Pool!   
 
-Validate Sections   
+Validate Sections
+    [Documentation]
     [Arguments]    ${Section_Xpath}    ${Validate_Section}
     Save Current Run Web Source 
     ${Section_deatils}    Get text and Return    ${Section_Xpath}
@@ -99,12 +109,14 @@ Validate Sections
     Lists Should Be Equal     ${Section_list}   ${validation_list} 
 
 Get your string to List
+    [Documentation]    Converts a string into a list by splitting it at newline characters.
     [Arguments]     ${string}
     Save Current Run Web Source 
     ${string_list}=    Split String    ${string}    \n
     RETURN   ${string_list}
     
 Validate Course Deatils
+    [Documentation]    Validates the course details on the page.
     Click Element 	 ${course_button}
     Save Current Run Web Source 
     Validate Sections    ${cs_info_xpath}    💻 B.Tech in Computer Science & Engineering\nLearn cutting-edge technologies like **AI, Machine Learning, Cloud Computing, and Cybersecurity**.

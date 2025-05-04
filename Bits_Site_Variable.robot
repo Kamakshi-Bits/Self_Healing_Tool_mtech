@@ -18,7 +18,7 @@ ${campus3_xpath}    //div[@id='fghhgrrgh' and @class='campus-card']
 ${campus3_text}     📍 Hyderabad Campus
 ${campus4_xpath}    //div[@id='dubai_cid']
 ${campus4_text}     📍 Dubai Campus
-${academic_info_xpath}   //p[@id='academics_id1']
+${academic_info_xpath}   //p[@id='academics_id']
 ${academic_info_text}    BITS Pilani offers Undergraduate, Postgraduate, and Ph.D. programs in engineering, management, and research.
 ${placement_info_xpath}   //p[@id='placement_id']
 ${placement_info_text}    Our students are placed in top companies like Google, Microsoft, Amazon, Tesla, and many more.
@@ -65,5 +65,5 @@ ${ME_info_xpath}   //div[@id='ME-info_id']
 ${CE_info_xpath}      //div[@id='CE_info_id']
 ${Qntum_info_xpath}     //div[@id='Qntum_info_id']
 ${DSA_info_xpath}     //div[@id='DSA_info_id']
-${DBM_info_xpath}     //div[@id='DBM_info_id1' and @class='update-box']
-${bio_info_xpath}     //div[@id='bio_info_id1' and @class='update-box']
+${DBM_info_xpath}     //div[@id='DBM_info_id' and @class='update-box']
+${bio_info_xpath}     //div[@id='bio_info_id' and @class='update-box']

@@ -14,16 +14,19 @@ ${log to console File}   log_to_console_text.txt
 
 *** Keywords ***
 Passed Teardown
+    [Documentation]    Handles the actions to be performed when the test case passes.
     ${Page_title}    SeleniumLibrary.Get Title
     Copy Files  ${CURDIR}\\Current_logs\\${Page_title}.txt    ${CURDIR}\\Passed_Logs
     SeleniumLibrary.Close Browser
 
 Save Current Run Web Source
+    [Documentation]    Saves the current run web source to a file.
     ${Page_title}    SeleniumLibrary.Get Title
     ${Page_Source}   Get Source
     Create File     ${CURDIR}\\Current_logs\\${Page_title}.txt     ${Page_Source}
 
 Failed Teardown
+    [Documentation]    Handles the actions to be performed when the test case fails.
     Verify Folder Exists And Is Not Empty
     ${Is_self_heal_Applicable}    Validate Error and Proceed  ${TEST MESSAGE}   
     IF  '${Is_self_heal_Applicable}'=='True'
@@ -56,6 +59,7 @@ Failed Teardown
     END
 
 Get New Xpath and Update
+    [Documentation]    Generates a new XPath and updates the current one if necessary.
     [Arguments]  ${File_Name}   ${TEST MESSAGE}
     ${xpath_condition}    extract_xpath_info    ${TEST MESSAGE}
     ${Changes_Tag_Line}   find_lines     ${CURDIR}\\Passed_Logs\\${File_Name}.txt    ${xpath_condition}
@@ -74,6 +78,7 @@ Get New Xpath and Update
     END
 
 Get Desired Change Path
+    [Documentation]    Generates the desired change path based on the provided line and file name.
     [Arguments]     ${Line}    ${File_Name}   ${Count}=0
     ${Count}   Evaluate   ${Count}+1
     ${Surrounded_line}    get_above_line    ${CURDIR}\\Passed_Logs\\${File_Name}.txt     ${Line}
@@ -94,11 +99,13 @@ Get Desired Change Path
     END
 
 Verify Folder Exists And Is Not Empty
+    [Documentation]    Verifies if the specified folder exists and is not empty.
     Directory Should Exist    ${CURDIR}\\Passed_Logs    No Passed logs Found
     ${FILES}=    List Files In Directory   ${CURDIR}\\Passed_Logs
     Should Not Be Empty    ${FILES}   No Passed logs Found
 
 Validate Error and Proceed
+    [Documentation]    Validates the error message and checks if it contains specific keywords.
     [Arguments]    ${error_message}
     ${error_message_lower}    Convert To Lower Case    ${error_message}
     ${condition_1}    Run Keyword And Return Status    Should Contain    ${error_message_lower}    element with locator  
@@ -110,14 +117,17 @@ Validate Error and Proceed
     END
 
 Get Current Running File
+    [Documentation]    Retrieves the name of the current running file.
     ${path}=    Get Variable Value    ${SUITE SOURCE}
     ${filename}=    Split String From Right    ${path}    \\    1
     RETURN    ${filename[1]}
 
 Suite_Setup_Keyword
+    [Documentation]    Sets up the test suite by creating necessary directories and files.
     Set Screenshot Directory    ${CURDIR}\\Screenshots
 
 Test_setup_keyword
+    [Documentation]    Sets up the test case by creating necessary directories and files.
     ${timestamp}=    	Get Current Date   result_format=%Y_%m_%d_%H_%M_%S
     IF     '${IS_RERUN}' == 'False'        
         Create File    ${validator_file}    ${timestamp}${\n}
@@ -129,6 +139,7 @@ Test_setup_keyword
     END
  
 Check_Iteration_For_Testcase
+    [Documentation]    Checks the iteration status for the test case.
     [Arguments]   ${TEST MESSAGE}
     ${variable_Name}   ${path}    find_variable_and_value    ${CURDIR}   ${TEST MESSAGE}
     ${re_run_var}    Get validator File Content
@@ -165,6 +176,7 @@ Check_Iteration_For_Testcase
     Rewrite_file_With_update   ${validator_file}      ${re_run_var}
 
 Get Last Block As Clean List
+    [Documentation]    Retrieves the last block of text from a file and cleans it.
     [Arguments]    ${file}
     ${content}=    Get File    ${file}
     ${lines}=    Split To Lines    ${content}
@@ -172,11 +184,13 @@ Get Last Block As Clean List
     RETURN    ${cleaned}
 
 Get validator File Content 
+    [Documentation]    Retrieves the content of the validator file and returns it as a list.
     ${re_run_var}   Get Last Block As Clean List    ${validator_file}
     RETURN   ${re_run_var}
     
     
 Rewrite_file_With_update
+    [Documentation]    Rewrites the validator file with updated content.
     [Arguments]   ${file}   ${updated_content}
     Create File    ${validator_file}    ${updated_content[0]}\n${updated_content[1]}\n${updated_content[2]}
 
@@ -193,15 +207,17 @@ get_stdout_error
     END
 
 
-check for error 
+check for error
+    [Documentation]    Checks for errors in the provided line and validates them.
     [Arguments]     ${test_line}
-    ${Is_self_heal_Applicable}    Validate Error and Proceed   ${test_line}  
+    ${Is_self_heal_Applicable}    Validate Error and Proceed   ${test_line}
     IF  '${Is_self_heal_Applicable}'=='False'
        Append To File    ${log to console File}   Potienial Error Found After Re-Run${\n}
     END
 
 
 Print File Lines One By One
+    [Documentation]    Prints the lines of a file one by one to the console.
     [Arguments]    ${FILE_PATH}
     ${content}=    Get File    ${FILE_PATH}
     ${lines}=    Split To Lines    ${content}
